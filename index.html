@@ -1,40 +1,206 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
 <head>
-<meta charset="UTF-8">
-<title>中垦农津</title>
-<style>
-body { font-family: 'Microsoft YaHei'; margin: 0; background: #f5f5f5; }
-.header { background: #1a3e2c; color: white; padding: 30px; text-align: center; }
-.header h1 { margin: 0; font-size: 32px; }
-.header p { margin: 10px 0 0; opacity: 0.9; }
-.nav { background: white; padding: 15px; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
-.nav a { color: #1a3e2c; text-decoration: none; margin: 0 20px; font-weight: bold; }
-.content { max-width: 1000px; margin: 40px auto; padding: 40px; background: white; border-radius: 16px; }
-.btn { background: #d4a017; color: white; padding: 12px 30px; text-decoration: none; border-radius: 30px; display: inline-block; }
-.footer { background: #1a2e3c; color: white; text-align: center; padding: 30px; margin-top: 40px; }
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>中垦农津 · 肉类品质提升专家</title>
+  <!-- 滚动动画库 -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif; background: #0f1e15; color: #fff; line-height: 1.6; }
+    
+    /* 深绿色渐变背景 + 噪点纹理 (模拟豆包AI生成图的质感) */
+    .site-bg {
+      position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+      background: radial-gradient(circle at 30% 20%, #1a4d2e, #0a1a0f);
+      z-index: -2;
+    }
+    .site-bg::after {
+      content: ""; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+      background-image: url('data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noise%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.8%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noise)%22 opacity=%220.08%22/%3E%3C/svg%3E');
+      opacity: 0.15; pointer-events: none; z-index: -1;
+    }
+
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; position: relative; z-index: 2; }
+    
+    /* 导航栏 - 半透明玻璃效果 */
+    .navbar {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 20px 0; border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+    .logo { font-size: 1.8rem; font-weight: 700; letter-spacing: 1px; }
+    .logo a { text-decoration: none; color: #fff; }
+    .logo span { color: #e8b339; }
+    .logo small { font-size: 0.8rem; font-weight: 400; opacity: 0.8; display: block; }
+    .nav-menu { display: flex; gap: 2.5rem; list-style: none; }
+    .nav-menu a { color: #fff; text-decoration: none; font-weight: 500; transition: 0.3s; padding-bottom: 6px; border-bottom: 2px solid transparent; }
+    .nav-menu a:hover, .nav-menu a.active { color: #e8b339; border-bottom-color: #e8b339; }
+    .menu-toggle { display: none; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.3); color: white; padding: 8px 16px; border-radius: 30px; cursor: pointer; }
+
+    /* 按钮 */
+    .btn { display: inline-block; padding: 12px 32px; border-radius: 40px; font-weight: 600; text-decoration: none; transition: 0.3s; }
+    .btn-primary { background: #e8b339; color: #0f1e15; box-shadow: 0 8px 20px rgba(232,179,57,0.3); }
+    .btn-primary:hover { background: #d4a017; transform: translateY(-3px); }
+    .btn-outline { border: 1.5px solid #e8b339; color: #e8b339; }
+    .btn-outline:hover { background: #e8b339; color: #0f1e15; }
+
+    /* 英雄区 */
+    .hero { padding: 80px 0; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+    .hero-badge { display: inline-block; background: rgba(232,179,57,0.15); border: 1px solid rgba(232,179,57,0.3); padding: 6px 18px; border-radius: 40px; font-size: 0.9rem; margin-bottom: 24px; color: #e8b339; }
+    .hero h1 { font-size: 3.5rem; font-weight: 700; line-height: 1.2; margin-bottom: 24px; }
+    .hero h1 .highlight { color: #e8b339; border-bottom: 3px solid #e8b339; }
+    .hero p { font-size: 1.1rem; opacity: 0.9; margin-bottom: 32px; max-width: 500px; }
+    .hero-image { background: rgba(255,255,255,0.05); border-radius: 24px; padding: 30px; backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.1); }
+    .hero-image .placeholder { background: rgba(0,0,0,0.2); border-radius: 16px; padding: 80px 20px; text-align: center; color: #aaa; border: 1px dashed rgba(255,255,255,0.2); }
+    .hero-image .placeholder span { font-size: 3rem; display: block; margin-bottom: 10px; }
+
+    /* 板块标题 */
+    .section-title { text-align: center; margin-bottom: 60px; }
+    .section-title h2 { font-size: 2.5rem; margin-bottom: 16px; }
+    .section-title h2 span { color: #e8b339; }
+    .section-title p { opacity: 0.8; }
+
+    /* 技术亮点卡片 (4列) */
+    .card-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin: 60px 0; }
+    .tech-card { background: rgba(255,255,255,0.03); backdrop-filter: blur(5px); border: 1px solid rgba(255,255,255,0.08); border-radius: 24px; padding: 36px 24px; transition: 0.3s; }
+    .tech-card:hover { transform: translateY(-8px); background: rgba(255,255,255,0.08); border-color: rgba(232,179,57,0.3); }
+    .tech-icon { font-size: 2.8rem; margin-bottom: 24px; }
+    .tech-card h3 { font-size: 1.4rem; margin-bottom: 12px; color: #e8b339; }
+    .tech-card p { opacity: 0.8; font-size: 0.95rem; }
+
+    /* 图片展示区 (占位) */
+    .showcase-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin: 60px 0; }
+    .showcase-item { background: rgba(0,0,0,0.2); border-radius: 20px; padding: 60px 30px; text-align: center; border: 1px dashed rgba(255,255,255,0.2); }
+    .showcase-item .emoji { font-size: 3rem; margin-bottom: 16px; }
+    .showcase-item p { opacity: 0.7; }
+
+    /* 数据展示条 */
+    .stats-bar { display: flex; justify-content: space-around; background: rgba(255,255,255,0.03); backdrop-filter: blur(5px); border-radius: 60px; padding: 40px 20px; margin: 60px 0; border: 1px solid rgba(255,255,255,0.05); }
+    .stat-item { text-align: center; }
+    .stat-number { font-size: 3rem; font-weight: 700; color: #e8b339; }
+    .stat-label { opacity: 0.7; margin-top: 8px; }
+
+    /* 页脚 */
+    .footer { border-top: 1px solid rgba(255,255,255,0.1); padding: 50px 0 30px; margin-top: 80px; }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1.5fr; gap: 40px; }
+    .footer a { color: #ccc; text-decoration: none; }
+    .footer h4 { margin-bottom: 20px; color: #fff; }
+    .copyright { text-align: center; padding-top: 40px; opacity: 0.6; font-size: 0.9rem; }
+
+    /* 响应式 */
+    @media (max-width: 768px) {
+      .nav-menu { display: none; }
+      .menu-toggle { display: block; }
+      .hero { grid-template-columns: 1fr; text-align: center; }
+      .hero p { margin-left: auto; margin-right: auto; }
+      .card-grid { grid-template-columns: 1fr; }
+      .stats-bar { flex-direction: column; gap: 30px; }
+      .footer-grid { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
 <body>
-<div class="header">
-<h1>中垦农津 · 食品科技</h1>
-<p>广东广垦农业发展有限公司下属企业</p>
-</div>
-<div class="nav">
-<a href="index.html">首页</a>
-<a href="technology.html">核心技术</a>
-<a href="solutions.html">解决方案</a>
-<a href="contact.html">联系我们</a>
-</div>
-<div class="content">
-<h2 style="color:#1a3e2c;">生物细胞还原技术</h2>
-<h3 style="color:#d4a017;">肉类品质提升专家</h3>
-<p>国内独有技术，正申请国家专利。无磷、无防腐剂、清洁标签，领先广东乃至全国。</p>
-<a href="technology.html" class="btn">了解核心技术 →</a>
-</div>
-<div class="footer">
-<p>📍 佛山市南海区狮山镇罗村佛罗路5号五楼自编02号</p>
-<p>© 2025 中垦农津（佛山）食品科技有限公司</p>
-</div>
+  <!-- 背景层 -->
+  <div class="site-bg"></div>
+
+  <!-- 导航 -->
+  <div class="container">
+    <nav class="navbar">
+      <div class="logo">
+        <a href="index.html">中垦农津<span>·</span>食品科技</a>
+        <small>广东广垦农业发展有限公司下属企业</small>
+      </div>
+      <button class="menu-toggle" id="menuToggle">☰ 菜单</button>
+      <ul class="nav-menu" id="navMenu">
+        <li><a href="index.html" class="active">首页</a></li>
+        <li><a href="technology.html">核心技术</a></li>
+        <li><a href="solutions.html">解决方案</a></li>
+        <li><a href="contact.html">联系我们</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <main class="container">
+    <!-- 英雄区 -->
+    <section class="hero" data-aos="fade-up">
+      <div>
+        <span class="hero-badge">🧬 国内独有技术 · 正申请国家专利</span>
+        <h1><span class="highlight">生物细胞还原</span><br>肉类品质提升专家</h1>
+        <p>中垦农津是广东广垦农业发展有限公司下属企业，核心技术将生物细胞还原应用于肉类加工，改善肉质、提高出成、无磷无防腐剂。</p>
+        <div style="display: flex; gap: 16px; flex-wrap: wrap;">
+          <a href="technology.html" class="btn btn-primary">了解核心技术</a>
+          <a href="solutions.html" class="btn btn-outline">查看解决方案 →</a>
+        </div>
+      </div>
+      <div class="hero-image" data-aos="fade-left">
+        <div class="placeholder">
+          <span>🥩</span>
+          <p>【您的产品/工厂图片】</p>
+          <small>替换 src 即可</small>
+        </div>
+      </div>
+    </section>
+
+    <!-- 技术亮点 -->
+    <section data-aos="fade-up">
+      <div class="section-title">
+        <h2><span>技术领先</span> · 央企品质</h2>
+        <p>联合研发：广东农垦 × 广州市中科微量元素科学研究院 × 中垦农津</p>
+      </div>
+      <div class="card-grid">
+        <div class="tech-card"><div class="tech-icon">🧪</div><h3>取代传统保水剂</h3><p>以蛋清蛋白肽及低聚糖为核心，减少甚至不用锁水剂和固色剂。</p></div>
+        <div class="tech-card"><div class="tech-icon">🚫🧪</div><h3>拒绝磷酸盐</h3><p>产品不含磷添加，依然高效持水，保持天然色泽与风味。</p></div>
+        <div class="tech-card"><div class="tech-icon">🌿</div><h3>配料绝对健康</h3><p>盐糖为主，无防腐剂、无香精，配料表干净，可直接食用。</p></div>
+        <div class="tech-card"><div class="tech-icon">🔄❄️</div><h3>反复冻融稳定</h3><p>肉质结构生物还原，反复冰冻解冻仍维持弹性与营养。</p></div>
+      </div>
+    </section>
+
+    <!-- 图片展示区（占位，供您放产品/工厂图） -->
+    <section data-aos="fade-up">
+      <div class="section-title">
+        <h2>应用领域与<span>生产基地</span></h2>
+        <p>覆盖全品类肉类及水产加工</p>
+      </div>
+      <div class="showcase-grid">
+        <div class="showcase-item"><div class="emoji">🏭</div><strong>自有工厂</strong><p>罗定豆豉鸡产业园 · 面积超600亩</p><small>【替换为工厂照片】</small></div>
+        <div class="showcase-item"><div class="emoji">🐟🥩</div><strong>产品应用</strong><p>猪肉、鸡肉、牛肉、水产、预制菜等</p><small>【替换为产品图】</small></div>
+      </div>
+    </section>
+
+    <!-- 数据展示 -->
+    <div class="stats-bar" data-aos="fade-up">
+      <div class="stat-item"><div class="stat-number">600+</div><div class="stat-label">亩自有产业园</div></div>
+      <div class="stat-item"><div class="stat-number">20+</div><div class="stat-label">年行业经验</div></div>
+      <div class="stat-item"><div class="stat-number">100%</div><div class="stat-label">无磷添加</div></div>
+      <div class="stat-item"><div class="stat-number">50+</div><div class="stat-label">合作企业</div></div>
+    </div>
+  </main>
+
+  <!-- 页脚 -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div><h4>中垦农津（佛山）食品科技有限公司</h4><p>广东广垦农业发展有限公司下属企业<br>生物细胞还原技术 · 肉类品质提升专家</p></div>
+        <div><h4>快速导航</h4><ul style="list-style:none;"><li><a href="index.html">首页</a></li><li><a href="technology.html">核心技术</a></li><li><a href="solutions.html">解决方案</a></li><li><a href="contact.html">联系我们</a></li></ul></div>
+        <div><h4>联系</h4><p>📍 佛山市南海区狮山镇罗村佛罗路5号五楼自编02号</p><p>📧 2908150644@qq.com</p><p>📞 13825071128</p></div>
+      </div>
+      <div class="copyright">© 2025 中垦农津（佛山）食品科技有限公司 | 广东广垦农业发展有限公司下属企业</div>
+    </div>
+  </footer>
+
+  <!-- 脚本 -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({ duration: 800, once: true });
+    document.getElementById('menuToggle').addEventListener('click', function() {
+      document.getElementById('navMenu').classList.toggle('show');
+    });
+  </script>
+  <style>
+    @media (max-width: 768px) {
+      .nav-menu.show { display: flex; flex-direction: column; background: rgba(10,26,15,0.95); position: absolute; top: 80px; left: 0; width: 100%; padding: 24px; gap: 16px; backdrop-filter: blur(10px); }
+    }
+  </style>
 </body>
 </html>
