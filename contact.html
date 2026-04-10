@@ -22,10 +22,14 @@
         .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 40px; }
         .contact-info, .contact-form { background: white; border-radius: 32px; padding: 32px; box-shadow: 0 10px 20px rgba(0,0,0,0.03); }
         .contact-info p { margin: 16px 0; font-size: 1.1rem; display: flex; align-items: center; gap: 12px; }
+        .contact-info a { color: #2C3E2F; text-decoration: none; border-bottom: 1px solid #E67E22; }
+        .contact-info a:hover { color: #E67E22; }
         .contact-form input, .contact-form textarea { width: 100%; padding: 12px; margin-bottom: 16px; border: 1px solid #e0d6c8; border-radius: 28px; font-family: inherit; }
         .contact-form textarea { border-radius: 24px; resize: vertical; }
-        .map-placeholder { background: #D9E3CC; border-radius: 32px; padding: 80px 20px; text-align: center; margin-top: 40px; font-size: 1.2rem; color: #2C5A2E; }
-        footer { background: #2C5A2E; color: #f0f2e9; padding: 48px 0 24px; }
+        .map-placeholder { background: #D9E3CC; border-radius: 32px; padding: 40px 20px; text-align: center; margin-top: 40px; }
+        .map-link { display: inline-block; background: #E67E22; color: white; text-decoration: none; padding: 12px 28px; border-radius: 50px; font-weight: 600; margin-top: 20px; transition: background 0.2s; }
+        .map-link:hover { background: #c95c0e; }
+        footer { background: #2C5A2E; color: #f0f2e9; padding: 24px 0; text-align: center; font-size: 0.9rem; }
         @media (max-width: 700px) { .title-green { font-size: 1.7rem; } .contact-grid { grid-template-columns: 1fr; } }
     </style>
 </head>
@@ -47,10 +51,10 @@
             <div class="contact-grid">
                 <div class="contact-info">
                     <h3>中星农津（佛山）食品科技有限公司</h3>
-                    <p>📞 电话：13825071128</p>
-                    <p>📧 邮箱：2908150644@qq.com</p>
-                    <p>📍 地址：佛山市南海区狮山镇罗村佛罗路5号五楼自编02号</p>
                     <p>🏢 广东广垦农业发展有限公司下属企业</p>
+                    <p>📞 电话：<a href="tel:13825071128">13825071128</a>（点击可拨号）</p>
+                    <p>📧 邮箱：<a href="mailto:2908150644@qq.com">2908150644@qq.com</a></p>
+                    <p>📍 地址：佛山市南海区狮山镇罗村佛罗路5号五楼自编02号</p>
                 </div>
                 <div class="contact-form">
                     <h3>预约技术咨询</h3>
@@ -61,16 +65,17 @@
                     <button class="btn-green" style="width:100%;">提交咨询</button>
                 </div>
             </div>
-            <div class="map-placeholder">📍 地图位置示意：佛山市南海区狮山镇罗村佛罗路5号</div>
+            <div class="map-placeholder">
+                <div style="font-size: 1.2rem; margin-bottom: 10px;">📍 公司地址</div>
+                <div style="margin-bottom: 15px;">佛山市南海区狮山镇罗村佛罗路5号五楼自编02号</div>
+                <a href="https://uri.amap.com/marker?position=113.045,23.058&name=中星农津" target="_blank" class="map-link">🗺️ 点击查看高德地图导航</a>
+                <p style="margin-top: 15px; font-size: 0.85rem;">点击上方按钮可打开高德地图，查看路线或导航至公司（手机端自动唤起App）</p>
+            </div>
         </section>
     </div>
     <footer>
         <div class="container">
-            <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 30px;">
-                <div><h3>中星农津（佛山）食品科技有限公司</h3><p>广东广垦农业发展有限公司下属企业</p><p>📞 电话：13825071128</p><p>📧 邮箱：2908150644@qq.com</p><p>📍 地址：佛山市南海区狮山镇罗村佛罗路5号五楼自编02号</p></div>
-                <div><h4>快速链接</h4><p><a href="index.html" style="color:#f0f2e9;">首页</a></p><p><a href="tech.html" style="color:#f0f2e9;">技术原理与应用</a></p><p><a href="news.html" style="color:#f0f2e9;">企业近况</a></p></div>
-            </div>
-            <div class="copyright" style="text-align: center; margin-top: 48px;">© 2026 中星农津 | 绿色科技 · 纯净配料 · 国企品质</div>
+            <div>© 2026 中星农津 | 绿色科技 · 纯净配料 · 国企品质</div>
         </div>
     </footer>
 </body>
