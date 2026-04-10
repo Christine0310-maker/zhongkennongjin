@@ -94,41 +94,6 @@
             margin-bottom: 16px;
             text-align: center;
         }
-        .hero-green {
-            background: linear-gradient(120deg, #E9F5E6 0%, #FDF8F0 100%);
-            border-radius: 0 0 48px 48px;
-            padding: 50px 0;
-        }
-        .hero-inner {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            gap: 40px;
-        }
-        .hero-left h1 {
-            font-size: 2.8rem;
-            font-weight: 800;
-            color: #2C5A2E;
-            line-height: 1.2;
-        }
-        .hero-left p {
-            font-size: 1.1rem;
-            margin: 20px 0;
-        }
-        .badge-natural {
-            background: #FBE9D2;
-            border-radius: 40px;
-            padding: 6px 16px;
-            font-size: 0.8rem;
-            display: inline-block;
-            margin-bottom: 20px;
-        }
-        .img-placeholder {
-            background: #D9E3CC;
-            border-radius: 32px;
-            padding: 40px 20px;
-            text-align: center;
-        }
         .three-why {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -245,14 +210,70 @@
             font-weight: 700;
             margin: 0 auto 16px auto;
         }
+        /* 新增板块样式 */
+        .rd-card {
+            background: white;
+            border-radius: 32px;
+            padding: 32px;
+            margin: 30px 0;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.03);
+            border: 1px solid #f0e5d6;
+        }
+        .rd-card h3 {
+            font-size: 1.6rem;
+            margin-bottom: 20px;
+            color: #2C5A2E;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .rd-card p {
+            margin: 12px 0;
+            line-height: 1.6;
+        }
+        .report-list {
+            background: white;
+            border-radius: 32px;
+            padding: 32px;
+            margin: 30px 0;
+        }
+        .report-item {
+            margin-bottom: 24px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid #f0e5d6;
+        }
+        .report-item:last-child {
+            border-bottom: none;
+        }
+        .report-title {
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: #E67E22;
+            margin-bottom: 8px;
+        }
+        .tech-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        .feature-item {
+            background: white;
+            border-radius: 28px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.03);
+            border: 1px solid #f0e5d6;
+        }
         footer {
             background: #2C5A2E;
             color: #f0f2e9;
-            padding: 48px 0 24px;
+            padding: 24px 0;
+            text-align: center;
+            font-size: 0.9rem;
         }
         @media (max-width: 700px) {
             .title-green { font-size: 1.7rem; }
-            .hero-left h1 { font-size: 2rem; }
         }
     </style>
 </head>
@@ -269,20 +290,8 @@
         </div>
     </div>
 
-    <div class="hero-green">
-        <div class="container hero-inner">
-            <div class="hero-left">
-                <div class="badge-natural">🌱 国内独有 · 国家专利申报中</div>
-                <h1>生物细胞还原技术</h1>
-                <p>无磷、无防腐剂、清洁标签，领先广东乃至全国。</p>
-            </div>
-            <div class="img-placeholder" style="flex:1;">
-                🧬 细胞级锁水技术<br>（微观结构示意）
-            </div>
-        </div>
-    </div>
-
     <div class="container">
+        <!-- 核心技术原理 -->
         <section>
             <div class="title-green">核心技术原理</div>
             <div class="three-why">
@@ -292,6 +301,7 @@
             </div>
         </section>
 
+        <!-- 技术优势 -->
         <section>
             <div class="title-green">技术优势</div>
             <div class="three-why">
@@ -301,6 +311,44 @@
             </div>
         </section>
 
+        <!-- 新增：联合研发 -->
+        <section>
+            <div class="title-green">🏛️ 联合研发</div>
+            <div class="rd-card">
+                <p><strong>广东广垦农业发展有限公司</strong>（农业部直属广东省农垦集团一级企业）</p>
+                <p><strong>广州市中科微量元素科学研究院</strong>（原广州市微量元素研究所副所长李喜贵领衔）</p>
+                <p><strong>中垦农津（佛山）食品科技有限公司</strong></p>
+                <p style="margin-top: 20px;">三方汇集技术和资源，挂牌设立联合研发中心。</p>
+            </div>
+        </section>
+
+        <!-- 新增：权威检测报告 -->
+        <section>
+            <div class="title-green">📋 权威检测报告</div>
+            <div class="report-list">
+                <div class="report-item">
+                    <div class="report-title">广东省湛江市质量计量监督检测所</div>
+                    <p>过氧化值、总砷、铅、镉、铬、山梨酸等全部合格</p>
+                </div>
+                <div class="report-item">
+                    <div class="report-title">佛山市食品药品检验检测中心</div>
+                    <p>形态、色泽、气味、过氧化值、重金属、致病菌等全部合格</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 新增：技术特点 -->
+        <section>
+            <div class="title-green">✅ 技术特点</div>
+            <div class="tech-features">
+                <div class="feature-item">🌱 使用天然添加剂，还原细胞活性</div>
+                <div class="feature-item">🚫 不添加防腐剂及有害物质</div>
+                <div class="feature-item">🥩 保持肉类原有口感及味道</div>
+                <div class="feature-item">✅ 符合食品安全检测要求</div>
+            </div>
+        </section>
+
+        <!-- 以下为原有板块：解决行业核心痛点、技术对比、应用领域、技术合作流程 -->
         <section>
             <div class="title-green">解决行业核心痛点</div>
             <div class="pain-grid">
@@ -349,24 +397,7 @@
 
     <footer>
         <div class="container">
-            <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 30px;">
-                <div>
-                    <h3>中星农津（佛山）食品科技有限公司</h3>
-                    <p>广东广垦农业发展有限公司下属企业</p>
-                    <p>📞 电话：13825071128</p>
-                    <p>📧 邮箱：2908150644@qq.com</p>
-                    <p>📍 地址：佛山市南海区狮山镇罗村佛罗路5号五楼自编02号</p>
-                </div>
-                <div>
-                    <h4>预约技术咨询</h4>
-                    <div style="display: flex; gap: 12px; flex-wrap: wrap;">
-                        <input type="text" placeholder="您的称呼" style="padding: 10px; border-radius: 40px; border: none; width: 180px;">
-                        <input type="text" placeholder="公司名称" style="padding: 10px; border-radius: 40px; border: none;">
-                        <button class="btn-green">提交咨询</button>
-                    </div>
-                </div>
-            </div>
-            <div class="copyright" style="text-align: center; margin-top: 48px;">© 2026 中星农津 | 绿色科技 · 纯净配料 · 国企品质</div>
+            <div>© 2026 中星农津 | 绿色科技 · 纯净配料 · 国企品质</div>
         </div>
     </footer>
 </body>
