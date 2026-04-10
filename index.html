@@ -21,7 +21,7 @@
             margin: 0 auto;
             padding: 0 24px;
         }
-        /* 导航栏 */
+        /* 导航栏 - 菜单项放到右侧圈出位置 */
         .nav-soft {
             background: #ffffffdd;
             backdrop-filter: blur(10px);
@@ -45,12 +45,13 @@
         .logo-green span {
             color: #E67E22;
         }
+        /* 菜单容器 - 靠右对齐，与Logo拉开距离 */
         .nav-links-green {
             display: flex;
             gap: 2rem;
             flex-wrap: wrap;
             list-style: none;
-            margin-left: auto;
+            margin-left: auto;  /* 确保菜单靠右 */
         }
         .nav-links-green li a {
             text-decoration: none;
@@ -62,6 +63,7 @@
         .nav-links-green li a:hover {
             color: #E67E22;
         }
+        /* 移动端：菜单换行居中 */
         @media (max-width: 680px) {
             .nav-flex {
                 flex-direction: column;
@@ -73,6 +75,7 @@
                 gap: 1.2rem;
             }
         }
+        /* 按钮（仅页脚使用） */
         .btn-green {
             background: #E67E22;
             color: white;
@@ -143,6 +146,7 @@
             padding: 40px 20px;
             text-align: center;
         }
+        /* 三个为什么（技术原理） */
         .three-why {
             display: grid;
             grid-template-columns: repeat(auto-fit,minmax(240px,1fr));
@@ -167,6 +171,7 @@
             padding: 8px 24px;
             box-shadow: 0 2px 8px rgba(0,0,0,0.05);
         }
+        /* 企业近况卡片 */
         .news-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -221,10 +226,9 @@
         <div class="container nav-flex">
             <div class="logo-green">中星<span>农津</span></div>
             <ul class="nav-links-green">
-                <li><a href="#tech">技术原理</a></li>
-                <li><a href="solutions.html">技术应用</a></li>
-                <li><a href="#news">企业近况</a></li>
-                <li><a href="#contact">联系我们</a></li>
+                <li><a href="#">技术原理</a></li>
+                <li><a href="#">企业近况</a></li>
+                <li><a href="#">联系我们</a></li>
             </ul>
         </div>
     </div>
@@ -235,6 +239,7 @@
                 <div class="badge-natural">🌱 配料表只有盐和糖 · 无磷无防腐</div>
                 <h1>生物细胞还原技术</h1>
                 <p>国内独有技术，正申请国家专利。<br>无磷、无防腐剂、清洁标签，领先广东乃至全国。</p>
+                <!-- 预约技术咨询按钮已删除 -->
             </div>
             <div class="img-placeholder" style="flex:1;">
                 🧬 细胞还原技术示意<br>（微观锁水工艺）
@@ -257,11 +262,13 @@
         <section>
             <div class="title-green">合作品牌 & 资质认证</div>
             <div class="brand-wall">
-                <span class="brand-chip">🏅 杭州味泰</span>
-                <span class="brand-chip">🌿 广州精臻农产品</span>
-                <span class="brand-chip">🐟 广东马氏水产</span>
-                <span class="brand-chip">🔬 广州中科微量元素科学研究院</span>
-                <span class="brand-chip">🤝 新丰县供销社</span>
+                <span class="brand-chip">🏅 广东广垦农发</span>
+                <span class="brand-chip">🍽️ G20杭州味泰</span>
+                <span class="brand-chip">🏮 陶陶居</span>
+                <span class="brand-chip">🌾 荣氏集团</span>
+                <span class="brand-chip">🥫 罗定豆豉鸡产业园</span>
+                <span class="brand-chip">📦 广东省粮津食品</span>
+                <span class="brand-chip">🐟 榕树水产</span>
             </div>
             <div style="margin-top: 32px; display: flex; gap: 20px; flex-wrap: wrap; justify-content: center;">
                 <span class="brand-chip">✅ ISO 22000</span>
@@ -275,65 +282,4 @@
             <div class="title-green">自有工厂 · 乡村振兴标杆</div>
             <div class="card-round" style="background:#FEF1E4;">
                 <h3>罗定豆豉鸡产业园 · 中星农津工厂</h3>
-                <p>面积超600亩，2024年建成标准化生产体系，重点研发豆豉鸡、鱼腐、腊味等，为乡村振兴注入持久动力。</p>
-                <div style="background:#DDD5C4; border-radius: 24px; padding: 20px; margin-top: 20px; text-align: center;">🏭 产业园规划示意图（实际占地600亩）</div>
-            </div>
-        </section>
-
-        <!-- 企业近况 -->
-        <section id="news">
-            <div class="title-green">企业近况</div>
-            <div class="news-grid">
-                <div class="news-card">
-                    <div class="news-img">🤝</div>
-                    <div class="news-content">
-                        <div class="news-date">2026年4月</div>
-                        <h3>产品研发展示平台正式启幕</h3>
-                        <p>我司联合新丰县供销社、中科微量元素研究院，马氏食品等龙头企业共同打造的《产品研发展示平台》于广州中和市场正式启幕。</p>
-                    </div>
-                </div>
-                <div class="news-card">
-                    <div class="news-img">🌾</div>
-                    <div class="news-content">
-                        <div class="news-date">2026年3月</div>
-                        <h3>入驻罗定豆豉鸡产业园，自有工厂试产成功</h3>
-                        <p>首条“生物细胞还原技术”生产线正式投产，年产能达5000吨，服务预制菜及肉制品企业。</p>
-                    </div>
-                </div>
-                <div class="news-card">
-                    <div class="news-img">🔬</div>
-                    <div class="news-content">
-                        <div class="news-date">2026年2月</div>
-                        <h3>国家发明专利进入实质审查阶段</h3>
-                        <p>“一种生物细胞还原技术在肉制品加工中的应用”获国家知识产权局受理，技术创新获权威认可。</p>
-                    </div>
-                </div>
-            </div>
-            <p style="text-align: center; margin-top: 24px;">更多合作动态持续更新中 → 欢迎联系洽谈</p>
-        </section>
-    </div>
-
-    <footer id="contact">
-        <div class="container">
-            <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 30px;">
-                <div>
-                    <h3>中星农津（佛山）食品科技有限公司</h3>
-                    <p>广东广垦农业发展有限公司下属企业</p>
-                    <p>📞 电话：13825071128</p>
-                    <p>📧 邮箱：2908150644@qq.com</p>
-                    <p>📍 地址：佛山市南海区狮山镇罗村佛罗路5号五楼自编02号</p>
-                </div>
-                <div>
-                    <h4>预约技术咨询</h4>
-                    <div style="display: flex; gap: 12px; flex-wrap: wrap;">
-                        <input type="text" placeholder="您的称呼" style="padding: 10px; border-radius: 40px; border: none; width: 180px;">
-                        <input type="text" placeholder="公司名称" style="padding: 10px; border-radius: 40px; border: none;">
-                        <button class="btn-green">提交咨询</button>
-                    </div>
-                </div>
-            </div>
-            <div class="copyright" style="text-align: center; margin-top: 48px;">© 2026 中星农津 | 绿色科技 · 纯净配料 · 国企品质</div>
-        </div>
-    </footer>
-</body>
-</html>
+                <p>面积超600亩，2024年建成标准化生产体系，重点研发豆豉鸡、鱼腐、
