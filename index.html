@@ -157,11 +157,43 @@
             box-shadow: 0 2px 8px rgba(0,0,0,0.05);
         }
         /* 关于我们样式 */
+        .about-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-top: 20px;
+        }
         .about-text {
+            flex: 1.2;
             font-size: 1.1rem;
             line-height: 1.7;
             color: #2C3E2F;
             text-align: justify;
+        }
+        .about-photos {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .photo-box {
+            background: #D9E3CC;
+            border-radius: 28px;
+            padding: 40px 20px;
+            text-align: center;
+            color: #2C5A2E;
+            font-weight: 500;
+            border: 2px dashed #A0B892;
+            transition: transform 0.2s;
+        }
+        .photo-box:hover {
+            transform: scale(1.01);
+            background: #CDDFB9;
+        }
+        .photo-box i {
+            font-size: 2.5rem;
+            display: block;
+            margin-bottom: 12px;
         }
         footer {
             background: #2C5A2E;
@@ -173,6 +205,7 @@
         @media (max-width: 700px) {
             .title-green { font-size: 1.7rem; }
             .hero-left h1 { font-size: 2rem; }
+            .about-wrapper { flex-direction: column; }
         }
     </style>
 </head>
@@ -203,7 +236,27 @@
     </div>
 
     <div class="container">
-        <!-- 合作品牌 & 资质认证（已按要求排序，无图标） -->
+        <!-- 关于我们板块（含绿色图片占位框） -->
+        <section>
+            <div class="title-green">关于我们</div>
+            <div class="card-round">
+                <div class="about-wrapper">
+                    <div class="about-text">
+                        <p>中垦农津（佛山）食品科技有限公司是广东广垦农业发展有限公司的下属企业，主要核心技术是将生物细胞还原技术应用于肉类产品加工研发处理，为肉类加工产品进行品质提升及赋能，我们的技术能改善肉质、提高产品出成、并且应用领域广泛，解决肉类制品行业的痛点，此项技术目前已领先于整个广东甚至全国。</p>
+                    </div>
+                    <div class="about-photos">
+                        <div class="photo-box">
+                            <i>📷</i> 公司照片占位区1<br>（可替换为工厂/团队图片）
+                        </div>
+                        <div class="photo-box">
+                            <i>🏭</i> 公司照片占位区2<br>（可替换为实验室/车间图片）
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 合作品牌 & 资质认证 -->
         <section>
             <div class="title-green">合作品牌 & 资质认证</div>
             <div class="brand-wall">
@@ -224,16 +277,6 @@
                 <span class="brand-chip">✅ ISO 22000</span>
                 <span class="brand-chip">✅ HACCP认证</span>
                 <span class="brand-chip">✅ CNAS实验室认可</span>
-            </div>
-        </section>
-
-        <!-- 新增：关于我们板块 -->
-        <section>
-            <div class="title-green">关于我们</div>
-            <div class="card-round">
-                <p class="about-text">
-                    中垦农津（佛山）食品科技有限公司是广东广垦农业发展有限公司的下属企业，主要核心技术是将生物细胞还原技术应用于肉类产品加工研发处理，为肉类加工产品进行品质提升及赋能，我们的技术能改善肉质、提高产品出成、并且应用领域广泛，解决肉类制品行业的痛点，此项技术目前已领先于整个广东甚至全国。
-                </p>
             </div>
         </section>
 
