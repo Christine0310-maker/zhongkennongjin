@@ -1,70 +1,368 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
 <head>
-<meta charset="UTF-8">
-<title>核心技术 · 中垦农津</title>
-<style>
-body { font-family: 'Microsoft YaHei'; margin: 0; background: #f5f5f5; }
-.header { background: #1a3e2c; color: white; padding: 30px; text-align: center; }
-.header h1 { margin: 0; font-size: 32px; }
-.header p { margin: 10px 0 0; opacity: 0.9; }
-.nav { background: white; padding: 15px; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
-.nav a { color: #1a3e2c; text-decoration: none; margin: 0 20px; font-weight: bold; }
-.content { max-width: 1000px; margin: 40px auto; padding: 40px; background: white; border-radius: 16px; }
-.tech-card { background: #f9fbfa; padding: 25px; border-radius: 12px; margin-bottom: 20px; border-left: 4px solid #d4a017; }
-.tech-card h3 { color: #1a3e2c; margin-bottom: 10px; }
-.footer { background: #1a2e3c; color: white; text-align: center; padding: 30px; margin-top: 40px; }
-.report-box { background: #e8f4e8; padding: 20px; border-radius: 12px; margin: 20px 0; }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+    <title>技术应用 | 中星农津 · 生物细胞还原技术</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', 'Noto Sans', sans-serif;
+            background: #FDF8F0;
+            color: #2C3E2F;
+            line-height: 1.5;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        /* 导航栏（与首页一致） */
+        .nav-soft {
+            background: #ffffffdd;
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 99;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+        }
+        .nav-flex {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            padding: 16px 0;
+        }
+        .logo-green {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #3A6B3D;
+        }
+        .logo-green span {
+            color: #E67E22;
+        }
+        .nav-links-green {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+            list-style: none;
+            margin-left: auto;
+        }
+        .nav-links-green li a {
+            text-decoration: none;
+            color: #2C3E2F;
+            font-weight: 500;
+            font-size: 1rem;
+            transition: color 0.2s;
+        }
+        .nav-links-green li a:hover {
+            color: #E67E22;
+        }
+        @media (max-width: 680px) {
+            .nav-flex {
+                flex-direction: column;
+                gap: 12px;
+            }
+            .nav-links-green {
+                margin-left: 0;
+                justify-content: center;
+                gap: 1.2rem;
+            }
+        }
+        /* 按钮 */
+        .btn-green {
+            background: #E67E22;
+            color: white;
+            border: none;
+            padding: 10px 26px;
+            border-radius: 50px;
+            font-weight: 600;
+            display: inline-block;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        section {
+            padding: 60px 0;
+        }
+        .title-green {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #2C5A2E;
+            margin-bottom: 16px;
+            text-align: center;
+        }
+        .section-sub {
+            text-align: center;
+            color: #5e6f5d;
+            margin-bottom: 40px;
+            font-size: 1.1rem;
+        }
+        /* 痛点卡片网格 */
+        .pain-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 30px;
+            margin-top: 20px;
+        }
+        .pain-card {
+            background: white;
+            border-radius: 32px;
+            padding: 28px;
+            text-align: center;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.03);
+            border: 1px solid #f0e5d6;
+            transition: transform 0.2s;
+        }
+        .pain-card:hover {
+            transform: translateY(-5px);
+        }
+        .pain-icon {
+            font-size: 3rem;
+            margin-bottom: 16px;
+        }
+        .pain-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 12px;
+            color: #2C5A2E;
+        }
+        .pain-card p {
+            color: #4a5b4e;
+        }
+        /* 表格对比 */
+        .compare-table-wrapper {
+            background: white;
+            border-radius: 32px;
+            overflow-x: auto;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        }
+        .compare-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 1rem;
+            min-width: 500px;
+        }
+        .compare-table th, .compare-table td {
+            padding: 18px 20px;
+            text-align: left;
+            border-bottom: 1px solid #f0e5d6;
+        }
+        .compare-table th {
+            background: #E9F5E6;
+            font-weight: 700;
+            color: #2C5A2E;
+            font-size: 1.1rem;
+        }
+        .compare-table tr:last-child td {
+            border-bottom: none;
+        }
+        .compare-table td:first-child {
+            font-weight: 600;
+            background: #FEF8F0;
+            width: 30%;
+        }
+        .badge-good {
+            background: #D4E6C3;
+            color: #2C5A2E;
+            padding: 4px 12px;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            display: inline-block;
+        }
+        /* 应用领域标签墙 */
+        .domains-wall {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        .domain-tag {
+            background: white;
+            border-radius: 60px;
+            padding: 10px 24px;
+            font-weight: 500;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            transition: all 0.2s;
+        }
+        .domain-tag:hover {
+            background: #E9F5E6;
+            transform: scale(1.02);
+        }
+        /* 流程步骤 */
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+        .step-card {
+            background: white;
+            border-radius: 32px;
+            padding: 28px 20px;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.03);
+        }
+        .step-number {
+            width: 48px;
+            height: 48px;
+            background: #E67E22;
+            color: white;
+            border-radius: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 0 auto 16px auto;
+        }
+        .step-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 8px;
+        }
+        footer {
+            background: #2C5A2E;
+            color: #f0f2e9;
+            padding: 48px 0 24px;
+            margin-top: 20px;
+        }
+        @media (max-width: 700px) {
+            .title-green { font-size: 1.7rem; }
+            .pain-card h3 { font-size: 1.2rem; }
+        }
+    </style>
 </head>
 <body>
-<div class="header">
-<h1>核心技术</h1>
-<p>生物细胞还原技术 · 国内独有 · 正申请国家专利</p>
-</div>
-<div class="nav">
-<a href="index.html">首页</a>
-<a href="technology.html">核心技术</a>
-<a href="solutions.html">解决方案</a>
-<a href="contact.html">联系我们</a>
-</div>
-<div class="content">
-<h2 style="color:#1a3e2c;">🧬 生物细胞还原技术原理</h2>
-<p style="font-size:1.1rem; margin:20px 0;">通过盐的渗透压将糖原及小分子蛋白肽带入可水溶性蛋白和非水溶性蛋白内部，改变活性，使糖原分子通过氢键吸附水分，减少解冻和加热过程中肉质本身的汁液流失。</p>
+    <div class="nav-soft">
+        <div class="container nav-flex">
+            <div class="logo-green">中星<span>农津</span></div>
+            <ul class="nav-links-green">
+                <li><a href="index.html">技术原理</a></li>
+                <li><a href="solutions.html" style="color:#E67E22;">技术应用</a></li>
+                <li><a href="index.html#news">企业近况</a></li>
+                <li><a href="index.html#contact">联系我们</a></li>
+            </ul>
+        </div>
+    </div>
 
-<div class="tech-card">
-<h3>🔬 核心材料</h3>
-<p>蛋清蛋白肽、低聚糖、小分子蛋白 — 天然、安全、可直接食用。</p>
-</div>
+    <div class="container">
+        <!-- 解决行业核心痛点 -->
+        <section>
+            <div class="title-green">解决行业核心痛点</div>
+            <div class="pain-grid">
+                <div class="pain-card">
+                    <div class="pain-icon">🍲</div>
+                    <h3>预制菜复热品质提升</h3>
+                    <p>解决预制菜复热后口感发柴、有酸味等问题。反复水浴加温仍维持口感及营养成分。</p>
+                </div>
+                <div class="pain-card">
+                    <div class="pain-icon">🍖</div>
+                    <h3>叉烧烧烤腊增香</h3>
+                    <p>解决叉烧烧烤腊味后发酸、肉质变硬问题，去除动物特有腥味。</p>
+                </div>
+                <div class="pain-card">
+                    <div class="pain-icon">🦐</div>
+                    <h3>水产海产品保鲜锁水</h3>
+                    <p>有效提高解冻时持水能力，减少汁液流失，保持天然色泽和风味。</p>
+                </div>
+                <div class="pain-card">
+                    <div class="pain-icon">🥧</div>
+                    <h3>烘焙包点馅料升级</h3>
+                    <p>与佛山市麦乐田合作，对包点和烘焙类馅料进行研发升级。</p>
+                </div>
+            </div>
+        </section>
 
-<div class="tech-card">
-<h3>🏛️ 联合研发</h3>
-<p><strong>广东广垦农业发展有限公司</strong>（农业部直属广东省农垦集团一级企业）<br>
-<strong>广州市中科微量元素科学研究院</strong>（原广州市微量元素研究所副所长李喜贵领衔）<br>
-<strong>中垦农津（佛山）食品科技有限公司</strong></p>
-<p>三方汇集技术和资源，挂牌设立联合研发中心。</p>
-</div>
+        <!-- 技术对比 -->
+        <section>
+            <div class="title-green">技术对比</div>
+            <div class="compare-table-wrapper">
+                <table class="compare-table">
+                    <thead>
+                        <tr><th>对比维度</th><th>一般技术</th><th>中星农津技术</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>食品添加剂</td><td>多种添加剂</td><td><span class="badge-good">天然添加剂，绿色健康</span></td></tr>
+                        <tr><td>产品味道</td><td>肉味丧失</td><td><span class="badge-good">保持原有肉味</span></td></tr>
+                        <tr><td>产品肉质</td><td>反复加热发柴</td><td><span class="badge-good">不影响口感营养</span></td></tr>
+                        <tr><td>配料表</td><td>成分复杂</td><td><span class="badge-good">配料表干净</span></td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
 
-<h3 style="color:#1a3e2c; margin-top:30px;">✅ 技术特点</h3>
-<div style="display:grid; grid-template-columns:1fr 1fr; gap:15px; margin:20px 0;">
-<div style="background:#f0f7f0; padding:15px; border-radius:8px;">🌱 使用天然添加剂，还原细胞活性</div>
-<div style="background:#f0f7f0; padding:15px; border-radius:8px;">🚫 不添加防腐剂及有害物质</div>
-<div style="background:#f0f7f0; padding:15px; border-radius:8px;">🥩 保持肉类原有口感及味道</div>
-<div style="background:#f0f7f0; padding:15px; border-radius:8px;">✅ 符合食品安全检测要求</div>
-</div>
+        <!-- 应用领域 -->
+        <section>
+            <div class="title-green">应用领域</div>
+            <div class="domains-wall">
+                <span class="domain-tag">🐖 猪肉</span>
+                <span class="domain-tag">🐓 鸡肉</span>
+                <span class="domain-tag">🐂 牛肉</span>
+                <span class="domain-tag">🐟 鱼肉</span>
+                <span class="domain-tag">🦐 虾仁/水产</span>
+                <span class="domain-tag">🍲 预煮</span>
+                <span class="domain-tag">🥓 培根/火腿</span>
+                <span class="domain-tag">🌭 香肠/灌肠</span>
+                <span class="domain-tag">🍱 中央厨房</span>
+                <span class="domain-tag">🥟 包点馅料</span>
+                <span class="domain-tag">🥛 乳品/内脏</span>
+            </div>
+        </section>
 
-<h3 style="color:#1a3e2c; margin-top:30px;">📋 权威检测报告</h3>
-<div class="report-box">
-<p><strong>广东省湛江市质量计量监督检测所</strong> — 过氧化值、总砷、铅、镉、铬、山梨酸等全部合格</p>
-</div>
-<div class="report-box">
-<p><strong>佛山市食品药品检验检测中心</strong> — 形态、色泽、气味、过氧化值、重金属、致病菌等全部合格</p>
-</div>
-<p style="margin-top:20px;">📞 完整检测报告可联系索取</p>
-</div>
-<div class="footer">
-<p>📍 佛山市南海区狮山镇罗村佛罗路5号五楼自编02号</p>
-<p>© 2025 中垦农津（佛山）食品科技有限公司 | 广东广垦农业发展有限公司下属企业</p>
-</div>
+        <!-- 技术合作流程 -->
+        <section>
+            <div class="title-green">技术合作流程</div>
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <h3>需求沟通</h3>
+                    <p>了解客户产品痛点与技术目标</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <h3>小样测试</h3>
+                    <p>实验室小批量验证效果</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <h3>产线调试</h3>
+                    <p>适配客户生产线参数优化</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">4</div>
+                    <h3>稳定供应</h3>
+                    <p>批量交付，持续技术支持</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 30px;">
+                <div>
+                    <h3>中星农津（佛山）食品科技有限公司</h3>
+                    <p>广东广垦农业发展有限公司下属企业</p>
+                    <p>📞 电话：13825071128</p>
+                    <p>📧 邮箱：2908150644@qq.com</p>
+                    <p>📍 地址：佛山市南海区狮山镇罗村佛罗路5号五楼自编02号</p>
+                </div>
+                <div>
+                    <h4>预约技术咨询</h4>
+                    <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+                        <input type="text" placeholder="您的称呼" style="padding: 10px; border-radius: 40px; border: none; width: 180px;">
+                        <input type="text" placeholder="公司名称" style="padding: 10px; border-radius: 40px; border: none;">
+                        <button class="btn-green">提交咨询</button>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright" style="text-align: center; margin-top: 48px;">© 2026 中星农津 | 绿色科技 · 纯净配料 · 国企品质</div>
+        </div>
+    </footer>
 </body>
 </html>
