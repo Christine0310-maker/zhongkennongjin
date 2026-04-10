@@ -60,7 +60,7 @@
             .nav-flex { flex-direction: column; gap: 12px; }
             .nav-links-green { justify-content: center; gap: 1rem; }
         }
-        /* 按钮 */
+        /* 按钮（仅页脚使用） */
         .btn-green {
             background: #E67E22;
             color: white;
@@ -70,14 +70,7 @@
             font-weight: 600;
             display: inline-block;
             text-decoration: none;
-        }
-        .btn-outline-green {
-            border: 1.5px solid #3A6B3D;
-            background: transparent;
-            padding: 8px 24px;
-            border-radius: 50px;
-            color: #3A6B3D;
-            font-weight: 500;
+            cursor: pointer;
         }
         section {
             padding: 60px 0;
@@ -102,11 +95,6 @@
             box-shadow: 0 10px 20px rgba(0,0,0,0.03);
             transition: all 0.2s;
             border: 1px solid #f0e5d6;
-        }
-        .grid-2 {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
-            gap: 30px;
         }
         .hero-green {
             background: linear-gradient(120deg, #E9F5E6 0%, #FDF8F0 100%);
@@ -143,7 +131,7 @@
             padding: 40px 20px;
             text-align: center;
         }
-        /* 三个为什么 */
+        /* 三个为什么（技术原理） */
         .three-why {
             display: grid;
             grid-template-columns: repeat(auto-fit,minmax(240px,1fr));
@@ -224,8 +212,6 @@
             <div class="logo-green">中星<span>农津</span></div>
             <ul class="nav-links-green">
                 <li><a href="#">技术原理</a></li>
-                <li><a href="#">合作案例</a></li>
-                <li><a href="#">检测报告</a></li>
                 <li><a href="#">企业近况</a></li>
                 <li><a href="#">联系我们</a></li>
             </ul>
@@ -238,9 +224,7 @@
                 <div class="badge-natural">🌱 配料表只有盐和糖 · 无磷无防腐</div>
                 <h1>生物细胞还原技术</h1>
                 <p>国内独有技术，正申请国家专利。<br>无磷、无防腐剂、清洁标签，领先广东乃至全国。</p>
-                <div style="display: flex; gap: 16px; flex-wrap: wrap;">
-                    <a href="#" class="btn-green">预约技术咨询</a>
-                </div>
+                <!-- 预约技术咨询按钮已删除 -->
             </div>
             <div class="img-placeholder" style="flex:1;">
                 🧬 细胞还原技术示意<br>（微观锁水工艺）
@@ -249,9 +233,9 @@
     </div>
 
     <div class="container">
-        <!-- 为什么我们的技术不一样？ -->
-        <section>
-            <div class="title-green">为什么我们的技术不一样？</div>
+        <!-- 技术原理区块 -->
+        <section id="tech">
+            <div class="title-green">技术原理</div>
             <div class="three-why">
                 <div class="why-card">🧂 <h3>反复解冻依然不柴？</h3><p>糖原通过氢键吸附水分，减少冰晶破坏细胞，肉质稳定如初。</p></div>
                 <div class="why-card">🚫 <h3>不用磷酸盐也能锁水？</h3><p>小分子蛋白肽+蛋清蛋白肽，天然保水，出成率更高。</p></div>
@@ -259,7 +243,7 @@
             </div>
         </section>
 
-        <!-- 合作品牌 & 资质认证（已删除指定品牌） -->
+        <!-- 合作品牌 & 资质认证 -->
         <section>
             <div class="title-green">合作品牌 & 资质认证</div>
             <div class="brand-wall">
@@ -288,8 +272,8 @@
             </div>
         </section>
 
-        <!-- 新增板块：企业近况（针对新增合作方） -->
-        <section>
+        <!-- 企业近况板块 -->
+        <section id="news">
             <div class="title-green">企业近况</div>
             <div class="news-grid">
                 <div class="news-card">
@@ -321,7 +305,7 @@
         </section>
     </div>
 
-    <footer>
+    <footer id="contact">
         <div class="container">
             <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 30px;">
                 <div>
@@ -336,7 +320,7 @@
                     <div style="display: flex; gap: 12px; flex-wrap: wrap;">
                         <input type="text" placeholder="您的称呼" style="padding: 10px; border-radius: 40px; border: none; width: 180px;">
                         <input type="text" placeholder="公司名称" style="padding: 10px; border-radius: 40px; border: none;">
-                        <button class="btn-green" style="background:#E67E22;">提交咨询</button>
+                        <button class="btn-green">提交咨询</button>
                     </div>
                 </div>
             </div>
