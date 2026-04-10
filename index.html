@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
-    <title>中星农津 · 生物细胞还原技术</title>
+    <title>中星农津 · 生物细胞还原技术 | 自然健康风</title>
     <style>
         * {
             margin: 0;
@@ -21,7 +21,7 @@
             margin: 0 auto;
             padding: 0 24px;
         }
-        /* 导航 */
+        /* 导航栏 */
         .nav-soft {
             background: #ffffffdd;
             backdrop-filter: blur(10px);
@@ -47,20 +47,32 @@
         }
         .nav-links-green {
             display: flex;
-            gap: 1.5rem;
+            gap: 2rem;
             flex-wrap: wrap;
             list-style: none;
+            margin-left: auto;
         }
-        .nav-links-green a {
+        .nav-links-green li a {
             text-decoration: none;
             color: #2C3E2F;
             font-weight: 500;
+            font-size: 1rem;
+            transition: color 0.2s;
+        }
+        .nav-links-green li a:hover {
+            color: #E67E22;
         }
         @media (max-width: 680px) {
-            .nav-flex { flex-direction: column; gap: 12px; }
-            .nav-links-green { justify-content: center; gap: 1rem; }
+            .nav-flex {
+                flex-direction: column;
+                gap: 12px;
+            }
+            .nav-links-green {
+                margin-left: 0;
+                justify-content: center;
+                gap: 1.2rem;
+            }
         }
-        /* 按钮（仅页脚使用） */
         .btn-green {
             background: #E67E22;
             color: white;
@@ -131,7 +143,6 @@
             padding: 40px 20px;
             text-align: center;
         }
-        /* 三个为什么（技术原理） */
         .three-why {
             display: grid;
             grid-template-columns: repeat(auto-fit,minmax(240px,1fr));
@@ -156,7 +167,6 @@
             padding: 8px 24px;
             box-shadow: 0 2px 8px rgba(0,0,0,0.05);
         }
-        /* 企业近况卡片 */
         .news-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -224,7 +234,6 @@
                 <div class="badge-natural">🌱 配料表只有盐和糖 · 无磷无防腐</div>
                 <h1>生物细胞还原技术</h1>
                 <p>国内独有技术，正申请国家专利。<br>无磷、无防腐剂、清洁标签，领先广东乃至全国。</p>
-                <!-- 预约技术咨询按钮已删除 -->
             </div>
             <div class="img-placeholder" style="flex:1;">
                 🧬 细胞还原技术示意<br>（微观锁水工艺）
@@ -233,7 +242,7 @@
     </div>
 
     <div class="container">
-        <!-- 技术原理区块 -->
+        <!-- 技术原理 -->
         <section id="tech">
             <div class="title-green">技术原理</div>
             <div class="three-why">
@@ -243,17 +252,15 @@
             </div>
         </section>
 
-        <!-- 合作品牌 & 资质认证 -->
+        <!-- 合作品牌 & 资质认证（已按要求修改品牌） -->
         <section>
             <div class="title-green">合作品牌 & 资质认证</div>
             <div class="brand-wall">
-                <span class="brand-chip">🏅 广东广垦农发</span>
-                <span class="brand-chip">🍽️ G20杭州味泰</span>
-                <span class="brand-chip">🏮 陶陶居</span>
-                <span class="brand-chip">🌾 荣氏集团</span>
-                <span class="brand-chip">🥫 罗定豆豉鸡产业园</span>
-                <span class="brand-chip">📦 广东省粮津食品</span>
-                <span class="brand-chip">🐟 榕树水产</span>
+                <span class="brand-chip">🏅 杭州味泰</span>
+                <span class="brand-chip">🌿 广州精臻农产品</span>
+                <span class="brand-chip">🐟 广东马氏水产</span>
+                <span class="brand-chip">🔬 广州中科微量元素科学研究院</span>
+                <span class="brand-chip">🤝 新丰县供销社</span>
             </div>
             <div style="margin-top: 32px; display: flex; gap: 20px; flex-wrap: wrap; justify-content: center;">
                 <span class="brand-chip">✅ ISO 22000</span>
@@ -272,7 +279,7 @@
             </div>
         </section>
 
-        <!-- 企业近况板块 -->
+        <!-- 企业近况（第一条已按要求修改） -->
         <section id="news">
             <div class="title-green">企业近况</div>
             <div class="news-grid">
@@ -280,8 +287,8 @@
                     <div class="news-img">🤝</div>
                     <div class="news-content">
                         <div class="news-date">2026年4月</div>
-                        <h3>与中华老字号“陶陶居”深化战略合作</h3>
-                        <p>双方共同成立联合研发实验室，针对粤菜点心肉馅进行品质升级，天然配料方案已进入中试阶段。</p>
+                        <h3>产品研发展示平台正式启幕</h3>
+                        <p>我司联合新丰县供销社、中科微量元素研究院，马氏食品等龙头企业共同打造的《产品研发展示平台》于广州中和市场正式启幕。</p>
                     </div>
                 </div>
                 <div class="news-card">
