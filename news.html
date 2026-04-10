@@ -16,7 +16,6 @@
         .nav-links-green li a { text-decoration: none; color: #2C3E2F; font-weight: 500; font-size: 1rem; transition: color 0.2s; }
         .nav-links-green li a:hover, .nav-links-green li a.active { color: #E67E22; }
         @media (max-width: 680px) { .nav-flex { flex-direction: column; gap: 12px; } .nav-links-green { margin-left: 0; justify-content: center; gap: 1.2rem; } }
-        .btn-green { background: #E67E22; color: white; border: none; padding: 10px 26px; border-radius: 50px; font-weight: 600; cursor: pointer; }
         section { padding: 60px 0; }
         .title-green { font-size: 2rem; font-weight: 700; color: #2C5A2E; margin-bottom: 16px; text-align: center; }
         .news-list { display: flex; flex-direction: column; gap: 30px; margin-top: 30px; }
@@ -25,7 +24,7 @@
         .news-content { flex: 1; padding: 24px; }
         .news-date { font-size: 0.85rem; color: #E67E22; margin-bottom: 8px; }
         .news-content h3 { font-size: 1.5rem; margin-bottom: 12px; }
-        footer { background: #2C5A2E; color: #f0f2e9; padding: 48px 0 24px; }
+        footer { background: #2C5A2E; color: #f0f2e9; padding: 24px 0; text-align: center; font-size: 0.9rem; }
         @media (max-width: 700px) { .title-green { font-size: 1.7rem; } .news-img { max-width: 100%; height: 180px; } }
     </style>
 </head>
@@ -45,19 +44,39 @@
         <section>
             <div class="title-green">企业近况</div>
             <div class="news-list">
-                <div class="news-item"><div class="news-img">🤝</div><div class="news-content"><div class="news-date">2026年4月</div><h3>产品研发展示平台正式启幕</h3><p>我司联合新丰县供销社、中科微量元素研究院，马氏食品等龙头企业共同打造的《产品研发展示平台》于广州中和市场正式启幕。</p></div></div>
-                <div class="news-item"><div class="news-img">🌾</div><div class="news-content"><div class="news-date">2026年3月</div><h3>入驻罗定豆豉鸡产业园，自有工厂试产成功</h3><p>首条“生物细胞还原技术”生产线正式投产，年产能达5000吨，服务预制菜及肉制品企业。</p></div></div>
-                <div class="news-item"><div class="news-img">🔬</div><div class="news-content"><div class="news-date">2026年2月</div><h3>国家发明专利进入实质审查阶段</h3><p>“一种生物细胞还原技术在肉制品加工中的应用”获国家知识产权局受理，技术创新获权威认可。</p></div></div>
+                <!-- 第一条：2026年4月 -->
+                <div class="news-item">
+                    <div class="news-img">🤝</div>
+                    <div class="news-content">
+                        <div class="news-date">2026年4月</div>
+                        <h3>产品研发展示平台正式启幕</h3>
+                        <p>我司联合新丰县供销社、中科微量元素研究院，马氏食品等龙头企业共同打造的《产品研发展示平台》于广州中和市场正式启幕。</p>
+                    </div>
+                </div>
+                <!-- 第二条：2026年3月 -->
+                <div class="news-item">
+                    <div class="news-img">🌾</div>
+                    <div class="news-content">
+                        <div class="news-date">2026年3月</div>
+                        <h3>入驻罗定豆豉鸡产业园，自有工厂试产成功</h3>
+                        <p>首条“生物细胞还原技术”生产线正式投产，年产能达5000吨，服务预制菜及肉制品企业。</p>
+                    </div>
+                </div>
+                <!-- 第三条：替换为联合研发中心授权 -->
+                <div class="news-item">
+                    <div class="news-img">🔬</div>
+                    <div class="news-content">
+                        <div class="news-date">2026年2月</div>
+                        <h3>联合研发中心正式成立</h3>
+                        <p>我司中垦农津（佛山）食品科技有限公司正式获广州市中科微量元素科学研究院授权，双方携手成立联合研发中心，将为我司在肉类食品加工、食品配料研发、出成率优化等核心业务上，注入更强的技术动能与创新支撑。</p>
+                    </div>
+                </div>
             </div>
         </section>
     </div>
     <footer>
         <div class="container">
-            <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 30px;">
-                <div><h3>中星农津（佛山）食品科技有限公司</h3><p>广东广垦农业发展有限公司下属企业</p><p>📞 电话：13825071128</p><p>📧 邮箱：2908150644@qq.com</p><p>📍 地址：佛山市南海区狮山镇罗村佛罗路5号五楼自编02号</p></div>
-                <div><h4>预约技术咨询</h4><div style="display: flex; gap: 12px; flex-wrap: wrap;"><input type="text" placeholder="您的称呼" style="padding: 10px; border-radius: 40px; border: none; width: 180px;"><input type="text" placeholder="公司名称" style="padding: 10px; border-radius: 40px; border: none;"><button class="btn-green">提交咨询</button></div></div>
-            </div>
-            <div class="copyright" style="text-align: center; margin-top: 48px;">© 2026 中星农津 | 绿色科技 · 纯净配料 · 国企品质</div>
+            <div>© 2026 中星农津 | 绿色科技 · 纯净配料 · 国企品质</div>
         </div>
     </footer>
 </body>
