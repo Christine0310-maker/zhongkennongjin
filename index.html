@@ -167,48 +167,12 @@
             padding: 8px 24px;
             box-shadow: 0 2px 8px rgba(0,0,0,0.05);
         }
-        .news-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            margin-top: 20px;
-        }
-        .news-card {
-            background: white;
-            border-radius: 32px;
-            overflow: hidden;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
-            transition: transform 0.2s;
-        }
-        .news-card:hover {
-            transform: translateY(-5px);
-        }
-        .news-img {
-            background: #C7D9B7;
-            height: 180px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 3rem;
-            color: #2C5A2E;
-        }
-        .news-content {
-            padding: 20px;
-        }
-        .news-content h3 {
-            font-size: 1.3rem;
-            margin-bottom: 8px;
-            color: #2C5A2E;
-        }
-        .news-date {
-            font-size: 0.8rem;
-            color: #E67E22;
-            margin-bottom: 12px;
-        }
         footer {
             background: #2C5A2E;
             color: #f0f2e9;
-            padding: 48px 0 24px;
+            padding: 24px 0;
+            text-align: center;
+            font-size: 0.9rem;
         }
         @media (max-width: 700px) {
             .title-green { font-size: 1.7rem; }
@@ -221,6 +185,7 @@
         <div class="container nav-flex">
             <div class="logo-green">中星<span>农津</span></div>
             <ul class="nav-links-green">
+                <li><a href="index.html">首页</a></li>
                 <li><a href="tech.html">技术原理与应用</a></li>
                 <li><a href="news.html">企业近况</a></li>
                 <li><a href="contact.html">联系我们</a></li>
@@ -278,60 +243,11 @@
                 <div style="background:#DDD5C4; border-radius: 24px; padding: 20px; margin-top: 20px; text-align: center;">🏭 产业园规划示意图（实际占地600亩）</div>
             </div>
         </section>
-
-        <!-- 企业近况（摘要） -->
-        <section id="news">
-            <div class="title-green">企业近况</div>
-            <div class="news-grid">
-                <div class="news-card">
-                    <div class="news-img">🤝</div>
-                    <div class="news-content">
-                        <div class="news-date">2026年4月</div>
-                        <h3>产品研发展示平台正式启幕</h3>
-                        <p>我司联合新丰县供销社、中科微量元素研究院，马氏食品等龙头企业共同打造的《产品研发展示平台》于广州中和市场正式启幕。</p>
-                    </div>
-                </div>
-                <div class="news-card">
-                    <div class="news-img">🌾</div>
-                    <div class="news-content">
-                        <div class="news-date">2026年3月</div>
-                        <h3>入驻罗定豆豉鸡产业园，自有工厂试产成功</h3>
-                        <p>首条“生物细胞还原技术”生产线正式投产，年产能达5000吨，服务预制菜及肉制品企业。</p>
-                    </div>
-                </div>
-                <div class="news-card">
-                    <div class="news-img">🔬</div>
-                    <div class="news-content">
-                        <div class="news-date">2026年2月</div>
-                        <h3>国家发明专利进入实质审查阶段</h3>
-                        <p>“一种生物细胞还原技术在肉制品加工中的应用”获国家知识产权局受理，技术创新获权威认可。</p>
-                    </div>
-                </div>
-            </div>
-            <p style="text-align: center; margin-top: 24px;">更多动态请查看 <a href="news.html" style="color:#E67E22;">企业近况</a></p>
-        </section>
     </div>
 
-    <footer id="contact">
+    <footer>
         <div class="container">
-            <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 30px;">
-                <div>
-                    <h3>中星农津（佛山）食品科技有限公司</h3>
-                    <p>广东广垦农业发展有限公司下属企业</p>
-                    <p>📞 电话：13825071128</p>
-                    <p>📧 邮箱：2908150644@qq.com</p>
-                    <p>📍 地址：佛山市南海区狮山镇罗村佛罗路5号五楼自编02号</p>
-                </div>
-                <div>
-                    <h4>预约技术咨询</h4>
-                    <div style="display: flex; gap: 12px; flex-wrap: wrap;">
-                        <input type="text" placeholder="您的称呼" style="padding: 10px; border-radius: 40px; border: none; width: 180px;">
-                        <input type="text" placeholder="公司名称" style="padding: 10px; border-radius: 40px; border: none;">
-                        <button class="btn-green">提交咨询</button>
-                    </div>
-                </div>
-            </div>
-            <div class="copyright" style="text-align: center; margin-top: 48px;">© 2026 中星农津 | 绿色科技 · 纯净配料 · 国企品质</div>
+            <div>© 2026 中星农津 | 绿色科技 · 纯净配料 · 国企品质</div>
         </div>
     </footer>
 </body>
