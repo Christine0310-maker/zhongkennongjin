@@ -4,105 +4,143 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>中垦农津 · 细胞级锁鲜科技</title>
-  <!-- 字体与动画库 -->
+  <!-- 字体与动画 -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
-  <!-- Swiper 轮播图 -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
   <style>
+    /* ===== 融合 B+C 配色方案 ===== */
+    :root {
+      --bg-primary: #FDFBF9;      /* 暖白基底 */
+      --bg-card: #FFFFFF;          /* 纯白卡片 */
+      --text-title: #2C2C2C;       /* 深灰标题 */
+      --text-body: #5A5A5A;        /* 中灰正文 */
+      --accent-gold: #C9A96E;      /* 香槟金强调 */
+      --accent-green: #4A6B5D;     /* 橄榄绿辅助 */
+      --border-light: #E8E4DF;     /* 暖灰分割线 */
+      --footer-bg: #1E2420;        /* 深墨绿黑页脚 */
+    }
+
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Inter', sans-serif; background: #FFFFFF; color: #1E1E1E; line-height: 1.5; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg-primary);
+      color: var(--text-body);
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
     .container { max-width: 1280px; margin: 0 auto; padding: 0 40px; }
-    
-    /* 导航栏 - 干净通透 */
+
+    /* 导航栏 */
     .navbar {
       display: flex; justify-content: space-between; align-items: center;
-      padding: 24px 0; border-bottom: 1px solid rgba(0,0,0,0.05);
+      padding: 24px 0; border-bottom: 1px solid var(--border-light);
     }
-    .logo { font-family: 'Playfair Display', serif; font-size: 1.8rem; font-weight: 700; letter-spacing: 1px; }
-    .logo a { text-decoration: none; color: #1E1E1E; }
-    .logo span { color: #2C5F2D; }
-    .logo small { font-family: 'Inter', sans-serif; font-size: 0.7rem; font-weight: 400; color: #888; display: block; letter-spacing: 1px; }
+    .logo { font-family: 'Playfair Display', serif; font-size: 1.8rem; font-weight: 700; }
+    .logo a { text-decoration: none; color: var(--text-title); }
+    .logo span { color: var(--accent-green); }
+    .logo small {
+      font-family: 'Inter', sans-serif; font-size: 0.7rem; font-weight: 400;
+      color: var(--text-body); display: block; letter-spacing: 1px;
+    }
     .nav-menu { display: flex; gap: 3rem; list-style: none; }
-    .nav-menu a { color: #1E1E1E; text-decoration: none; font-weight: 500; font-size: 0.95rem; transition: 0.2s; }
-    .nav-menu a:hover, .nav-menu a.active { color: #2C5F2D; }
-    .menu-toggle { display: none; background: none; border: 1px solid #ccc; padding: 10px 20px; cursor: pointer; }
+    .nav-menu a {
+      color: var(--text-title); text-decoration: none; font-weight: 500;
+      font-size: 0.95rem; transition: 0.2s;
+    }
+    .nav-menu a:hover, .nav-menu a.active { color: var(--accent-green); }
+    .menu-toggle {
+      display: none; background: none; border: 1px solid var(--border-light);
+      padding: 10px 20px; cursor: pointer; color: var(--text-title);
+    }
 
     /* 按钮 */
-    .btn { display: inline-block; padding: 14px 36px; border-radius: 0; font-weight: 500; text-decoration: none; transition: 0.3s; letter-spacing: 1px; }
-    .btn-primary { background: #2C5F2D; color: white; border: 1px solid #2C5F2D; }
-    .btn-primary:hover { background: transparent; color: #2C5F2D; }
-    .btn-outline { border: 1px solid #2C5F2D; color: #2C5F2D; }
-    .btn-outline:hover { background: #2C5F2D; color: white; }
+    .btn {
+      display: inline-block; padding: 14px 36px; border-radius: 0;
+      font-weight: 500; text-decoration: none; transition: 0.3s; letter-spacing: 1px;
+    }
+    .btn-primary {
+      background: var(--accent-green); color: white;
+      border: 1px solid var(--accent-green);
+    }
+    .btn-primary:hover { background: transparent; color: var(--accent-green); }
+    .btn-outline {
+      border: 1px solid var(--accent-green); color: var(--accent-green);
+    }
+    .btn-outline:hover { background: var(--accent-green); color: white; }
 
     /* 英雄区 */
     .hero { padding: 80px 0; display: grid; grid-template-columns: 1fr 1.2fr; gap: 60px; align-items: center; }
-    .hero-tag { color: #C9A03D; font-weight: 500; letter-spacing: 3px; font-size: 0.9rem; margin-bottom: 20px; }
-    .hero h1 { font-family: 'Playfair Display', serif; font-size: 3.8rem; font-weight: 600; line-height: 1.2; margin-bottom: 25px; color: #1E1E1E; }
-    .hero h1 .light { font-weight: 400; color: #666; font-size: 2rem; display: block; margin-bottom: 8px; }
-    .hero p { font-size: 1.1rem; color: #555; max-width: 480px; margin-bottom: 40px; }
-    
-    /* 轮播图占位区 */
-    .carousel-placeholder {
-      background: #F5F5F5; border-radius: 12px; height: 420px;
-      display: flex; align-items: center; justify-content: center;
-      border: 1px solid #E0E0E0;
-    }
-    .carousel-placeholder p { color: #999; font-size: 1rem; }
+    .hero-tag { color: var(--accent-gold); font-weight: 500; letter-spacing: 3px; font-size: 0.9rem; margin-bottom: 20px; }
+    .hero h1 { font-family: 'Playfair Display', serif; font-size: 3.8rem; font-weight: 600; line-height: 1.2; margin-bottom: 25px; color: var(--text-title); }
+    .hero h1 .light { font-weight: 400; color: var(--text-body); font-size: 2rem; display: block; margin-bottom: 8px; }
+    .hero p { font-size: 1.1rem; color: var(--text-body); max-width: 480px; margin-bottom: 40px; }
 
-    /* Slogan 低调引用 */
+    /* 轮播图占位 */
+    .carousel-placeholder {
+      background: var(--bg-card); border-radius: 12px; height: 420px;
+      display: flex; align-items: center; justify-content: center;
+      border: 1px solid var(--border-light); box-shadow: 0 5px 20px rgba(0,0,0,0.02);
+    }
+    .carousel-placeholder p { color: var(--text-body); font-size: 1rem; }
+
+    /* Slogan */
     .slogan-quote {
       text-align: center; padding: 40px 0; margin: 40px 0;
-      border-top: 1px solid #EAEAEA; border-bottom: 1px solid #EAEAEA;
+      border-top: 1px solid var(--border-light); border-bottom: 1px solid var(--border-light);
     }
     .slogan-quote p {
-      font-family: 'Playfair Display', serif; font-size: 1.5rem; color: #2C5F2D;
-      letter-spacing: 2px; font-style: italic; opacity: 0.8;
+      font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--accent-green);
+      letter-spacing: 2px; font-style: italic; opacity: 0.9;
     }
 
     /* 数据面板 */
     .stats-panel {
       display: flex; justify-content: space-around; margin: 80px 0;
-      background: #FAFAFA; padding: 50px 20px; border-radius: 20px;
+      background: var(--bg-card); padding: 50px 20px; border-radius: 20px;
+      border: 1px solid var(--border-light);
     }
     .stat-item { text-align: center; }
-    .stat-num { font-family: 'Playfair Display', serif; font-size: 3.5rem; color: #2C5F2D; font-weight: 600; }
-    .stat-label { color: #666; letter-spacing: 2px; margin-top: 10px; }
+    .stat-num { font-family: 'Playfair Display', serif; font-size: 3.5rem; color: var(--accent-green); font-weight: 600; }
+    .stat-label { color: var(--text-body); letter-spacing: 2px; margin-top: 10px; }
 
-    /* 产品卡片网格 */
+    /* 卡片网格 */
     .section-title { text-align: center; margin-bottom: 50px; }
-    .section-title h2 { font-family: 'Playfair Display', serif; font-size: 2.5rem; color: #1E1E1E; }
-    .section-title p { color: #888; }
+    .section-title h2 { font-family: 'Playfair Display', serif; font-size: 2.5rem; color: var(--text-title); }
+    .section-title p { color: var(--text-body); }
     .card-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 25px; }
-    .prod-card { background: white; border: 1px solid #EEE; padding: 30px 20px; transition: 0.2s; }
-    .prod-card:hover { box-shadow: 0 15px 30px rgba(0,0,0,0.03); border-color: #2C5F2D; }
+    .prod-card {
+      background: var(--bg-card); border: 1px solid var(--border-light);
+      padding: 30px 20px; transition: 0.2s;
+    }
+    .prod-card:hover { box-shadow: 0 15px 30px rgba(0,0,0,0.03); border-color: var(--accent-green); }
     .prod-icon { font-size: 2.5rem; margin-bottom: 20px; }
-    .prod-card h4 { color: #2C5F2D; margin-bottom: 12px; }
+    .prod-card h4 { color: var(--accent-green); margin-bottom: 12px; }
 
-    /* 图片展示双栏 */
+    /* 双栏图片 */
     .showcase-duo {
       display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin: 80px 0;
     }
     .showcase-box {
-      background: #F5F5F5; height: 350px; border-radius: 16px;
+      background: var(--bg-card); height: 350px; border-radius: 16px;
       display: flex; flex-direction: column; justify-content: flex-end;
       padding: 30px; color: white; position: relative; overflow: hidden;
-      border: 1px solid #E0E0E0;
+      border: 1px solid var(--border-light);
     }
     .showcase-box .tag {
-      background: #2C5F2D; color: white; padding: 6px 18px; display: inline-block;
-      margin-bottom: 15px; font-size: 0.8rem; letter-spacing: 1px; align-self: flex-start;
+      background: var(--accent-gold); color: #2C2C2C; padding: 6px 18px;
+      display: inline-block; margin-bottom: 15px; font-size: 0.8rem;
+      letter-spacing: 1px; align-self: flex-start; font-weight: 500;
     }
 
-    /* 合作品牌墙 */
+    /* 品牌墙 */
     .brand-wall {
       display: flex; flex-wrap: wrap; justify-content: center; gap: 40px 60px;
-      margin: 60px 0; opacity: 0.6;
+      margin: 60px 0; opacity: 0.8;
     }
-    .brand-item { font-weight: 500; color: #444; }
+    .brand-item { font-weight: 500; color: var(--text-title); }
 
     /* 页脚 */
-    .footer { background: #1E1E1E; color: #AAA; padding: 60px 0 30px; margin-top: 80px; }
+    .footer { background: var(--footer-bg); color: #AAA; padding: 60px 0 30px; margin-top: 80px; }
     .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1.5fr; gap: 40px; }
     .footer a { color: #CCC; text-decoration: none; }
     .footer h4 { color: white; margin-bottom: 20px; font-weight: 500; }
@@ -148,14 +186,13 @@
         <a href="contact.html" class="btn btn-outline">获取样品</a>
       </div>
     </div>
-    <!-- 轮播图占位区 (后续您提供图片后可替换为真正的 Swiper 轮播) -->
     <div class="carousel-placeholder" data-aos="fade-left">
       <p>🖼️ 【您的产品/工厂轮播图】<br>建议尺寸 1200×800，3-5张</p>
     </div>
   </section>
 </div>
 
-<!-- 低调的 Slogan -->
+<!-- 低调 Slogan -->
 <div class="container">
   <div class="slogan-quote" data-aos="fade-up">
     <p>以农垦之力，筑食品之安，以技术之智，赋肉质之鲜</p>
@@ -171,7 +208,7 @@
     <div class="stat-item"><div class="stat-num">50+</div><div class="stat-label">合作品牌</div></div>
   </div>
 
-  <!-- 产品/应用卡片 -->
+  <!-- 核心应用 -->
   <div class="section-title" data-aos="fade-up">
     <h2>核心应用领域</h2>
     <p>覆盖全品类肉制品深加工</p>
@@ -183,21 +220,21 @@
     <div class="prod-card"><div class="prod-icon">🌭</div><h4>香肠/培根</h4><p>乳化稳定，护色抗氧化</p></div>
   </div>
 
-  <!-- 双栏图片展示 (工厂/产品) -->
+  <!-- 双栏图片展示 -->
   <div class="showcase-duo" data-aos="fade-up">
-    <div class="showcase-box" style="background: linear-gradient(0deg, rgba(0,0,0,0.3), rgba(0,0,0,0.1)), url('data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'100%25\' height=\'100%25\'%3E%3Crect width=\'100%25\' height=\'100%25\' fill=\'%23E0E8E0\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' font-family=\'Inter\' font-size=\'14\' fill=\'%232C5F2D\' text-anchor=\'middle\' dy=\'.3em\'%3E【工厂图片】%3C/text%3E%3C/svg%3E') center/cover;">
+    <div class="showcase-box" style="background: linear-gradient(0deg, rgba(0,0,0,0.2), rgba(0,0,0,0.05)), url('data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'100%25\' height=\'100%25\'%3E%3Crect width=\'100%25\' height=\'100%25\' fill=\'%23E0E4DC\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' font-family=\'Inter\' font-size=\'14\' fill=\'%234A6B5D\' text-anchor=\'middle\' dy=\'.3em\'%3E【工厂图片】%3C/text%3E%3C/svg%3E') center/cover;">
       <span class="tag">自有工厂 · 600亩</span>
       <h3 style="color:white; font-weight:500;">罗定豆豉鸡产业园</h3>
-      <p style="color:rgba(255,255,255,0.8);">标准化生产体系，即将全面投产</p>
+      <p style="color:rgba(255,255,255,0.9);">标准化生产体系，即将全面投产</p>
     </div>
-    <div class="showcase-box" style="background: linear-gradient(0deg, rgba(0,0,0,0.3), rgba(0,0,0,0.1)), url('data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'100%25\' height=\'100%25\'%3E%3Crect width=\'100%25\' height=\'100%25\' fill=\'%23D8C8B0\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' font-family=\'Inter\' font-size=\'14\' fill=\'%232C5F2D\' text-anchor=\'middle\' dy=\'.3em\'%3E【产品应用图片】%3C/text%3E%3C/svg%3E') center/cover;">
+    <div class="showcase-box" style="background: linear-gradient(0deg, rgba(0,0,0,0.2), rgba(0,0,0,0.05)), url('data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'100%25\' height=\'100%25\'%3E%3Crect width=\'100%25\' height=\'100%25\' fill=\'%23D8C8B0\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' font-family=\'Inter\' font-size=\'14\' fill=\'%234A6B5D\' text-anchor=\'middle\' dy=\'.3em\'%3E【产品应用图片】%3C/text%3E%3C/svg%3E') center/cover;">
       <span class="tag">技术应用</span>
       <h3 style="color:white; font-weight:500;">无磷锁鲜 · 清洁标签</h3>
-      <p style="color:rgba(255,255,255,0.8);">符合欧盟标准，配料表干净</p>
+      <p style="color:rgba(255,255,255,0.9);">符合欧盟标准，配料表干净</p>
     </div>
   </div>
 
-  <!-- 合作品牌墙 -->
+  <!-- 品牌墙 -->
   <div class="section-title" data-aos="fade-up">
     <h2>信任我们的伙伴</h2>
   </div>
@@ -233,7 +270,7 @@
 </script>
 <style>
   @media (max-width: 768px) {
-    .nav-menu.show { display: flex; flex-direction: column; background: white; position: absolute; top: 80px; left: 0; width: 100%; padding: 24px; box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
+    .nav-menu.show { display: flex; flex-direction: column; background: var(--bg-card); position: absolute; top: 80px; left: 0; width: 100%; padding: 24px; box-shadow: 0 10px 20px rgba(0,0,0,0.05); z-index: 999; }
   }
 </style>
 </body>
