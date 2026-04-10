@@ -1,203 +1,328 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>中垦农津 · 细胞级锁鲜科技</title>
-  <!-- 引入优雅的衬线字体 & 滚动动画 -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      font-family: 'Inter', sans-serif;
-      background-color: #0B0C0E;
-      color: #FFFFFF;
-      line-height: 1.5;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    /* 高级黑金渐变背景 + 食材纹理 (模拟米其林/高端食材官网) */
-    .luxury-bg {
-      position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-      background: radial-gradient(circle at 70% 20%, #1E2A1E, #0B0C0E 80%);
-      z-index: -2;
-    }
-    .luxury-bg::before {
-      content: ""; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-      background-image: url('data:image/svg+xml,%3Csvg width=%2260%22 height=%2260%22 viewBox=%220 0 60 60%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cpath d=%22M30 5 L55 30 L30 55 L5 30 L30 5 Z%22 fill=%22none%22 stroke=%22%23D4AF37%22 stroke-width=%220.3%22 opacity=%220.15%22 /%3E%3C/svg%3E');
-      opacity: 0.4; pointer-events: none; z-index: -1;
-    }
-
-    .container { max-width: 1280px; margin: 0 auto; padding: 0 40px; position: relative; z-index: 3; }
-    
-    /* 导航栏 - 极简玻璃 */
-    .navbar {
-      display: flex; justify-content: space-between; align-items: center;
-      padding: 28px 0; border-bottom: 1px solid rgba(212, 175, 55, 0.15);
-    }
-    .logo { font-family: 'Playfair Display', serif; font-size: 1.8rem; font-weight: 700; letter-spacing: 2px; }
-    .logo a { text-decoration: none; color: #fff; }
-    .logo span { color: #D4AF37; }
-    .logo small { font-family: 'Inter', sans-serif; font-size: 0.7rem; font-weight: 300; opacity: 0.6; display: block; letter-spacing: 1px; }
-    .nav-menu { display: flex; gap: 3rem; list-style: none; }
-    .nav-menu a { color: #fff; text-decoration: none; font-weight: 400; font-size: 0.95rem; letter-spacing: 1px; transition: 0.3s; padding-bottom: 6px; border-bottom: 1px solid transparent; }
-    .nav-menu a:hover, .nav-menu a.active { color: #D4AF37; border-bottom-color: #D4AF37; }
-    .menu-toggle { display: none; background: none; border: 1px solid rgba(255,255,255,0.3); color: white; padding: 10px 20px; border-radius: 0; cursor: pointer; font-weight: 300; letter-spacing: 1px; }
-
-    /* 按钮 - 参考图的高级线框感 */
-    .btn { display: inline-block; padding: 14px 38px; border-radius: 0; font-weight: 500; text-decoration: none; transition: 0.4s; letter-spacing: 1px; font-size: 0.9rem; }
-    .btn-primary { background: #D4AF37; color: #0B0C0E; border: 1px solid #D4AF37; }
-    .btn-primary:hover { background: transparent; color: #D4AF37; }
-    .btn-outline { border: 1px solid #D4AF37; color: #D4AF37; }
-    .btn-outline:hover { background: #D4AF37; color: #0B0C0E; }
-
-    /* 英雄区 - 巨大优雅的标题 */
-    .hero { padding: 100px 0 120px; display: grid; grid-template-columns: 1fr 1.2fr; gap: 80px; align-items: center; }
-    .hero-tag { color: #D4AF37; font-weight: 400; letter-spacing: 3px; font-size: 0.9rem; margin-bottom: 25px; }
-    .hero h1 { font-family: 'Playfair Display', serif; font-size: 4.2rem; font-weight: 700; line-height: 1.1; margin-bottom: 30px; }
-    .hero h1 .light { font-weight: 300; display: block; font-size: 2rem; color: #ccc; margin-bottom: 10px; }
-    .hero p { font-size: 1.1rem; opacity: 0.75; max-width: 450px; margin-bottom: 45px; font-weight: 300; }
-    
-    /* 图片展示区 - 高级感遮罩 */
-    .image-showcase {
-      display: grid; grid-template-columns: 1.5fr 1fr; gap: 25px;
-      position: relative;
-    }
-    .img-main {
-      background: linear-gradient(145deg, #1A241A, #0F140F);
-      border: 1px solid rgba(212, 175, 55, 0.2);
-      height: 400px; display: flex; align-items: flex-end; padding: 30px;
-      position: relative; overflow: hidden;
-    }
-    .img-main .tag {
-      background: #D4AF37; color: #0B0C0E; padding: 8px 20px;
-      font-weight: 600; letter-spacing: 2px; font-size: 0.8rem;
-      position: absolute; top: 30px; left: 30px;
-    }
-    .img-main .placeholder-text {
-      background: rgba(0,0,0,0.4); backdrop-filter: blur(8px);
-      padding: 15px 25px; border-left: 4px solid #D4AF37;
-    }
-    .img-side {
-      background: #151915; border: 1px solid rgba(255,255,255,0.05);
-      height: 400px; display: flex; flex-direction: column; justify-content: flex-end;
-      padding: 30px;
-    }
-
-    /* 数据面板 - 参考图的数字冲击 */
-    .stats-panel {
-      display: flex; justify-content: space-around; margin: 80px 0;
-      border-top: 1px solid rgba(212, 175, 55, 0.2);
-      border-bottom: 1px solid rgba(212, 175, 55, 0.2);
-      padding: 60px 0;
-    }
-    .stat-item { text-align: center; }
-    .stat-num { font-family: 'Playfair Display', serif; font-size: 4rem; color: #D4AF37; line-height: 1; }
-    .stat-label { font-weight: 300; letter-spacing: 2px; margin-top: 15px; opacity: 0.7; }
-
-    /* 页脚 */
-    .footer { border-top: 1px solid rgba(255,255,255,0.05); padding: 60px 0 40px; margin-top: 100px; }
-    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1.5fr; gap: 50px; }
-    .footer a { color: #aaa; text-decoration: none; font-weight: 300; }
-    .footer h4 { font-weight: 500; letter-spacing: 2px; margin-bottom: 25px; color: #fff; }
-
-    /* 响应式 */
-    @media (max-width: 992px) {
-      .hero { grid-template-columns: 1fr; }
-      .nav-menu { display: none; }
-      .menu-toggle { display: block; }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+    <title>中垦农津 · 配料只有盐和糖 | 自然健康风</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', 'Noto Sans', sans-serif;
+            background: #FDF8F0;
+            color: #2C3E2F;
+            line-height: 1.5;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        /* 导航 */
+        .nav-soft {
+            background: #ffffffdd;
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 99;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+        }
+        .nav-flex {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            padding: 16px 0;
+        }
+        .logo-green {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #3A6B3D;
+        }
+        .logo-green span {
+            color: #E67E22;
+        }
+        .nav-links-green {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            list-style: none;
+        }
+        .nav-links-green a {
+            text-decoration: none;
+            color: #2C3E2F;
+            font-weight: 500;
+        }
+        @media (max-width: 680px) {
+            .nav-flex { flex-direction: column; gap: 12px; }
+            .nav-links-green { justify-content: center; gap: 1rem; }
+        }
+        /* 按钮 */
+        .btn-green {
+            background: #E67E22;
+            color: white;
+            border: none;
+            padding: 10px 26px;
+            border-radius: 50px;
+            font-weight: 600;
+            display: inline-block;
+            text-decoration: none;
+        }
+        .btn-outline-green {
+            border: 1.5px solid #3A6B3D;
+            background: transparent;
+            padding: 8px 24px;
+            border-radius: 50px;
+            color: #3A6B3D;
+            font-weight: 500;
+        }
+        section {
+            padding: 60px 0;
+        }
+        .title-green {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #2C5A2E;
+            margin-bottom: 16px;
+        }
+        .sub-green {
+            color: #5e6f5d;
+            margin-bottom: 40px;
+            font-size: 1.1rem;
+        }
+        .card-round {
+            background: white;
+            border-radius: 32px;
+            padding: 28px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.03);
+            transition: all 0.2s;
+            border: 1px solid #f0e5d6;
+        }
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
+            gap: 30px;
+        }
+        .hero-green {
+            background: linear-gradient(120deg, #E9F5E6 0%, #FDF8F0 100%);
+            border-radius: 0 0 48px 48px;
+            padding: 50px 0;
+        }
+        .hero-inner {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 40px;
+        }
+        .hero-left h1 {
+            font-size: 2.4rem;
+            font-weight: 800;
+            color: #2C5A2E;
+        }
+        .hero-left p {
+            font-size: 1.1rem;
+            margin: 20px 0;
+        }
+        .badge-natural {
+            background: #FBE9D2;
+            border-radius: 40px;
+            padding: 6px 16px;
+            font-size: 0.8rem;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+        .img-placeholder {
+            background: #D9E3CC;
+            border-radius: 32px;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        /* 三个为什么 */
+        .three-why {
+            display: grid;
+            grid-template-columns: repeat(auto-fit,minmax(240px,1fr));
+            gap: 28px;
+            margin: 40px 0;
+        }
+        .why-card {
+            background: white;
+            border-radius: 28px;
+            padding: 24px;
+            text-align: center;
+        }
+        .compare-simple {
+            background: #FEF3E9;
+            border-radius: 32px;
+            padding: 32px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 24px;
+            justify-content: center;
+        }
+        .brand-wall {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+        .brand-chip {
+            background: white;
+            border-radius: 60px;
+            padding: 8px 24px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        footer {
+            background: #2C5A2E;
+            color: #f0f2e9;
+            padding: 48px 0 24px;
+        }
+        @media (max-width: 700px) {
+            .title-green { font-size: 1.7rem; }
+            .hero-left h1 { font-size: 1.8rem; }
+        }
+    </style>
 </head>
 <body>
-  <div class="luxury-bg"></div>
-
-  <div class="container">
-    <!-- 导航 -->
-    <nav class="navbar">
-      <div class="logo">
-        <a href="index.html">中垦农津<span>.</span></a>
-        <small>细胞级锁鲜科技</small>
-      </div>
-      <button class="menu-toggle" id="menuToggle">MENU</button>
-      <ul class="nav-menu" id="navMenu">
-        <li><a href="index.html" class="active">首页</a></li>
-        <li><a href="technology.html">核心技术</a></li>
-        <li><a href="solutions.html">解决方案</a></li>
-        <li><a href="contact.html">联系我们</a></li>
-      </ul>
-    </nav>
-
-    <!-- 英雄区：巨大标题 + 高级图片区 -->
-    <section class="hero" data-aos="fade-up">
-      <div>
-        <div class="hero-tag">—— 农垦品质 · 科技赋鲜</div>
-        <h1>
-          <span class="light">还原</span>
-          肉之本味
-        </h1>
-        <p>我们以生物细胞还原技术为核心，为全球肉类加工企业提供无磷、清洁标签的锁鲜方案，让每一块肉回到最佳状态。</p>
-        <div style="display: flex; gap: 20px;">
-          <a href="technology.html" class="btn btn-primary">探索核心技术</a>
-          <a href="contact.html" class="btn btn-outline">获取样品</a>
+    <div class="nav-soft">
+        <div class="container nav-flex">
+            <div class="logo-green">中垦<span>农津</span></div>
+            <ul class="nav-links-green">
+                <li><a href="#">技术原理</a></li>
+                <li><a href="#">配料对比</a></li>
+                <li><a href="#">合作故事</a></li>
+                <li><a href="#">检测报告</a></li>
+                <li><a href="#">样品申请</a></li>
+            </ul>
         </div>
-      </div>
-      <div class="image-showcase">
-        <!-- 主图：请替换为您最好的产品/工厂图 -->
-        <div class="img-main" style="background: url('data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'100%25\' height=\'100%25\'%3E%3Crect width=\'100%25\' height=\'100%25\' fill=\'%23111815\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' font-family=\'Inter\' font-size=\'14\' fill=\'%23D4AF37\' text-anchor=\'middle\' dy=\'.3em\' opacity=\'0.5\'%3E您的产品/工厂主图%3C/text%3E%3C/svg%3E') center/cover no-repeat;">
-          <span class="tag">自有工厂 · 600亩</span>
-          <div class="placeholder-text">
-            <h4 style="color:#D4AF37; font-weight:400;">罗定豆豉鸡产业园</h4>
-            <p style="font-size:0.8rem; opacity:0.8;">标准化生产体系，即将全面投产</p>
-          </div>
-        </div>
-        <!-- 侧图：请替换为食材/技术特写 -->
-        <div class="img-side" style="background: url('data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'100%25\' height=\'100%25\'%3E%3Crect width=\'100%25\' height=\'100%25\' fill=\'%23141A14\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' font-family=\'Inter\' font-size=\'12\' fill=\'%23D4AF37\' text-anchor=\'middle\' dy=\'.3em\' opacity=\'0.5\'%3E食材/技术特写%3C/text%3E%3C/svg%3E') center/cover no-repeat;">
-          <div style="background: rgba(0,0,0,0.3); backdrop-filter: blur(5px); padding: 15px;">
-            <h5 style="color:#D4AF37; margin-bottom:5px;">无磷锁鲜</h5>
-            <p style="font-size:0.8rem;">清洁标签，符合欧盟标准</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 数据冲击面板 (参考绿福的数字排版) -->
-    <div class="stats-panel" data-aos="fade-up">
-      <div class="stat-item"><div class="stat-num">600+</div><div class="stat-label">亩生态产业园</div></div>
-      <div class="stat-item"><div class="stat-num">100%</div><div class="stat-label">无磷添加</div></div>
-      <div class="stat-item"><div class="stat-num">20+</div><div class="stat-label">年农垦积淀</div></div>
-      <div class="stat-item"><div class="stat-num">50+</div><div class="stat-label">合作品牌</div></div>
     </div>
 
-    <!-- 品牌系列 / 产品展示 (参考绿福的卡片) -->
-    <section style="margin: 100px 0;" data-aos="fade-up">
-      <div style="text-align: center; margin-bottom: 60px;">
-        <h2 style="font-family: 'Playfair Display', serif; font-size: 3rem; font-weight: 400;">核心技术 <span style="color:#D4AF37;">应用</span></h2>
-        <p style="opacity:0.6; letter-spacing:2px;">覆盖全品类肉制品深加工</p>
-      </div>
-      <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 25px;">
-        <div style="border:1px solid rgba(255,255,255,0.05); padding:30px 20px;"><h4 style="color:#D4AF37; margin-bottom:15px;">调理肉制品</h4><p style="opacity:0.7; font-size:0.9rem;">鸡排、猪排、牛肉片锁水增嫩</p></div>
-        <div style="border:1px solid rgba(255,255,255,0.05); padding:30px 20px;"><h4 style="color:#D4AF37; margin-bottom:15px;">预制菜</h4><p style="opacity:0.7; font-size:0.9rem;">复热口感不柴，稳定出成</p></div>
-        <div style="border:1px solid rgba(255,255,255,0.05); padding:30px 20px;"><h4 style="color:#D4AF37; margin-bottom:15px;">水产/海产</h4><p style="opacity:0.7; font-size:0.9rem;">解冻保水，保持天然风味</p></div>
-        <div style="border:1px solid rgba(255,255,255,0.05); padding:30px 20px;"><h4 style="color:#D4AF37; margin-bottom:15px;">香肠/培根</h4><p style="opacity:0.7; font-size:0.9rem;">乳化稳定，护色抗氧化</p></div>
-      </div>
-    </section>
-  </div>
+    <div class="hero-green">
+        <div class="container hero-inner">
+            <div class="hero-left">
+                <div class="badge-natural">🌱 配料表只有盐和糖 · 无磷无防腐</div>
+                <h1>让肉回归本味<br>生物细胞还原技术</h1>
+                <p>锁住天然水分，反复解冻依然鲜嫩如初。<br>取代磷酸盐，告别复杂配料表。</p>
+                <div style="display: flex; gap: 16px; flex-wrap: wrap;">
+                    <a href="#" class="btn-green">查看配料对比</a>
+                    <a href="#" class="btn-outline-green">免费样品申请</a>
+                </div>
+            </div>
+            <div class="img-placeholder" style="flex:1;">
+                🥩 鲜嫩虾仁对比示意<br>（左：传统缩水 右：农津饱满）
+            </div>
+        </div>
+    </div>
 
-  <!-- 页脚 -->
-  <footer class="footer">
     <div class="container">
-      <div class="footer-grid">
-        <div><h4>中垦农津</h4><p style="opacity:0.5; font-weight:300;">广东广垦农业发展有限公司下属企业<br>生物细胞还原技术 · 肉类品质提升专家</p></div>
-        <div><h4>导航</h4><ul style="list-style:none;"><li><a href="index.html">首页</a></li><li><a href="technology.html">核心技术</a></li><li><a href="solutions.html">解决方案</a></li><li><a href="contact.html">联系我们</a></li></ul></div>
-        <div><h4>联系</h4><p style="opacity:0.5;">📍 佛山市南海区狮山镇罗村佛罗路5号<br>📞 13825071128<br>📧 2908150644@qq.com</p></div>
-      </div>
-      <div style="text-align:center; padding-top:60px; opacity:0.3; font-size:0.8rem; letter-spacing:2px;">© 2025 中垦农津（佛山）食品科技有限公司</div>
-    </div>
-  </footer>
+        <section>
+            <div class="title-green">为什么我们的技术不一样？</div>
+            <div class="three-why">
+                <div class="why-card">🧂 <h3>反复解冻依然不柴？</h3><p>糖原通过氢键吸附水分，减少冰晶破坏细胞，肉质稳定如初。</p></div>
+                <div class="why-card">🚫 <h3>不用磷酸盐也能锁水？</h3><p>小分子蛋白肽+蛋清蛋白肽，天然保水，出成率更高。</p></div>
+                <div class="why-card">📋 <h3>配料表为什么那么干净？</h3><p>不添加防腐剂、色素、香精，仅以盐糖为主，可直接食用。</p></div>
+            </div>
+        </section>
 
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script>AOS.init({ duration: 1000, once: true });</script>
+        <section>
+            <div class="title-green">真实产品对比 · 看得见的改变</div>
+            <div class="compare-simple">
+                <div style="background: white; border-radius: 24px; padding: 20px; flex:1;">
+                    <h3>传统虾仁</h3>
+                    <p>❌ 发白缩水<br>❌ 口感软烂<br>❌ 磷酸盐残留</p>
+                </div>
+                <div style="background: white; border-radius: 24px; padding: 20px; flex:1; border-left: 4px solid #E67E22;">
+                    <h3>农津虾仁</h3>
+                    <p>✅ 饱满有光泽<br>✅ 肉质Q弹<br>✅ 不含磷，天然锁水</p>
+                </div>
+            </div>
+            <p style="margin-top: 24px; text-align: center;">📊 检测报告：过氧化值仅0.027，重金属未检出，致病菌未检出</p>
+        </section>
+
+        <section>
+            <div class="title-green">应用地图 · 服务网络</div>
+            <div class="grid-2">
+                <div class="card-round">
+                    <h3>🌾 广东农垦基地</h3>
+                    <p>中央厨房预制菜技术赋能源头</p>
+                </div>
+                <div class="card-round">
+                    <h3>🏭 杭州味泰食品</h3>
+                    <p>G20供餐单位，全面技术入驻</p>
+                </div>
+                <div class="card-round">
+                    <h3>🥘 罗定豆豉鸡产业园</h3>
+                    <p>600亩省级产业园，自建工厂2024投产</p>
+                </div>
+                <div class="card-round">
+                    <h3>⛽ 中石化易捷/昆仑好客</h3>
+                    <p>鲜食产品技术端口，覆盖全国便利店</p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="title-green">客户证言 · 携手伙伴</div>
+            <div class="three-why" style="gap:20px;">
+                <div class="why-card">“肉质改善效果显著，出成率提升15%，消费者复购明显。”<br>—— 杭州味泰 研发总监</div>
+                <div class="why-card">“陶陶居与农津合作后，粤菜点心肉馅风味更佳，天然配料让我们更安心。”<br>—— 陶陶居 供应链负责人</div>
+                <div class="why-card">“罗定豆豉鸡项目技术保障强大，鸡肉锁鲜技术行业领先。”<br>—— 罗定产业园 管委会</div>
+            </div>
+        </section>
+
+        <section>
+            <div class="title-green">合作品牌 & 资质认证</div>
+            <div class="brand-wall">
+                <span class="brand-chip">🏅 广东广垦农发</span>
+                <span class="brand-chip">🍽️ G20杭州味泰</span>
+                <span class="brand-chip">🏮 陶陶居</span>
+                <span class="brand-chip">🌾 荣氏集团</span>
+                <span class="brand-chip">🥫 罗定豆豉鸡产业园</span>
+                <span class="brand-chip">⛽ 中石化易捷</span>
+                <span class="brand-chip">⚡ 南方电网/粤电集团</span>
+                <span class="brand-chip">🚇 广州地铁</span>
+                <span class="brand-chip">📦 广东省粮津食品</span>
+                <span class="brand-chip">🐟 榕树水产</span>
+            </div>
+            <div style="margin-top: 32px; display: flex; gap: 20px; flex-wrap: wrap; justify-content: center;">
+                <span class="brand-chip">✅ ISO 22000</span>
+                <span class="brand-chip">✅ HACCP认证</span>
+                <span class="brand-chip">✅ CNAS实验室认可</span>
+            </div>
+        </section>
+
+        <section>
+            <div class="title-green">自有工厂 · 乡村振兴标杆</div>
+            <div class="card-round" style="background:#FEF1E4;">
+                <h3>罗定豆豉鸡产业园 · 中垦农津工厂</h3>
+                <p>面积超600亩，2024年建成标准化生产体系，重点研发豆豉鸡、鱼腐、腊味等，为乡村振兴注入持久动力。</p>
+                <div style="background:#DDD5C4; border-radius: 24px; padding: 20px; margin-top: 20px; text-align: center;">🏭 产业园规划示意图（实际占地600亩）</div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 30px;">
+                <div>
+                    <h3>中垦农津（佛山）食品科技有限公司</h3>
+                    <p>广东广垦农业发展有限公司下属企业</p>
+                    <p>📞 业务咨询：400-882-XXXX</p>
+                    <p>📧 zknj@foodtech.com</p>
+                </div>
+                <div>
+                    <h4>免费索样或技术交流</h4>
+                    <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+                        <input type="text" placeholder="您的称呼" style="padding: 10px; border-radius: 40px; border: none; width: 180px;">
+                        <input type="text" placeholder="公司名称" style="padding: 10px; border-radius: 40px; border: none;">
+                        <button class="btn-green" style="background:#E67E22;">提交申请</button>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright" style="text-align: center; margin-top: 48px;">© 2025 中垦农津 | 绿色科技 · 纯净配料 · 国企品质</div>
+        </div>
+    </footer>
 </body>
 </html>
