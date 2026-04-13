@@ -12,8 +12,8 @@
         }
         body {
             font-family: system-ui, -apple-system, 'Segoe UI', 'Noto Sans', sans-serif;
-            background: #ffffff;               /* 纯白背景 */
-            color: #1e2a24;                     /* 深色文字 */
+            background: #FDF8F0;
+            color: #2C3E2F;
             line-height: 1.5;
         }
         .container {
@@ -21,15 +21,14 @@
             margin: 0 auto;
             padding: 0 24px;
         }
-        /* 导航栏 - 直角风格，去掉圆角 */
+        /* 导航栏 */
         .nav-soft {
-            background: #ffffff;
+            background: #ffffffdd;
             backdrop-filter: blur(10px);
             position: sticky;
             top: 0;
             z-index: 99;
             box-shadow: 0 2px 12px rgba(0,0,0,0.05);
-            border-bottom: 1px solid #e0e6ed;
         }
         .nav-flex {
             display: flex;
@@ -41,10 +40,10 @@
         .logo-green {
             font-size: 1.5rem;
             font-weight: 700;
-            color: #1e2a24;
+            color: #3A6B3D;
         }
         .logo-green span {
-            color: #d4a017;
+            color: #E67E22;
         }
         .nav-links-green {
             display: flex;
@@ -55,13 +54,13 @@
         }
         .nav-links-green li a {
             text-decoration: none;
-            color: #1e2a24;
+            color: #2C3E2F;
             font-weight: 500;
             font-size: 1rem;
             transition: color 0.2s;
         }
         .nav-links-green li a:hover {
-            color: #d4a017;
+            color: #E67E22;
         }
         @media (max-width: 680px) {
             .nav-flex {
@@ -75,11 +74,11 @@
             }
         }
         .btn-green {
-            background: #d4a017;
+            background: #E67E22;
             color: white;
             border: none;
             padding: 10px 26px;
-            border-radius: 0;                  /* 直角按钮 */
+            border-radius: 50px;
             font-weight: 600;
             display: inline-block;
             text-decoration: none;
@@ -91,29 +90,28 @@
         .title-green {
             font-size: 2rem;
             font-weight: 700;
-            color: #1e2a24;
+            color: #2C5A2E;
             margin-bottom: 16px;
             text-align: center;
         }
         .sub-green {
-            color: #4a5c6a;
+            color: #5e6f5d;
             margin-bottom: 40px;
             font-size: 1.1rem;
             text-align: center;
         }
         .card-round {
             background: white;
-            border-radius: 0;                   /* 直角卡片 */
+            border-radius: 32px;
             padding: 28px;
             box-shadow: 0 10px 20px rgba(0,0,0,0.03);
             transition: all 0.2s;
-            border: 1px solid #e0e6ed;
+            border: 1px solid #f0e5d6;
         }
-        /* Hero区域渐变加深，从深绿到中绿 */
         .hero-green {
-            background: linear-gradient(135deg, #1a3e2c 0%, #2a5a3a 100%);
-            border-radius: 0;                   /* 直角Hero底部 */
-            padding: 60px 0;
+            background: linear-gradient(120deg, #E9F5E6 0%, #FDF8F0 100%);
+            border-radius: 0 0 48px 48px;
+            padding: 50px 0;
         }
         .hero-inner {
             display: flex;
@@ -124,32 +122,26 @@
         .hero-left h1 {
             font-size: 2.8rem;
             font-weight: 800;
-            color: #ffffff;                     /* 白色文字更清晰 */
+            color: #2C5A2E;
             line-height: 1.2;
         }
         .hero-left p {
             font-size: 1.1rem;
             margin: 20px 0;
-            color: #f0f5f0;
         }
         .badge-natural {
-            background: #f5f7f6;
-            border-radius: 0;                   /* 直角标签 */
+            background: #FBE9D2;
+            border-radius: 40px;
             padding: 6px 16px;
             font-size: 0.8rem;
             display: inline-block;
             margin-bottom: 20px;
-            color: #1e2a24;
-            border: 1px solid #d4a017;
         }
-        /* 右侧占位框加大，直角 */
         .img-placeholder {
-            background: #f5f7f6;
-            border-radius: 0;
-            padding: 60px 30px;                 /* 加大内边距使框更大 */
+            background: #D9E3CC;
+            border-radius: 32px;
+            padding: 40px 20px;
             text-align: center;
-            color: #1e2a24;
-            border: 1px solid #d4a017;
         }
         .brand-wall {
             display: flex;
@@ -160,11 +152,9 @@
         }
         .brand-chip {
             background: white;
-            border-radius: 0;
+            border-radius: 60px;
             padding: 8px 24px;
             box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-            color: #1e2a24;
-            border: 1px solid #d4a017;
         }
         /* 关于我们样式 */
         .about-wrapper {
@@ -177,7 +167,7 @@
             flex: 1.2;
             font-size: 1.1rem;
             line-height: 1.7;
-            color: #1e2a24;
+            color: #2C3E2F;
             text-align: justify;
         }
         .about-photos {
@@ -187,18 +177,18 @@
             gap: 20px;
         }
         .photo-box {
-            background: #f5f7f6;
-            border-radius: 0;
+            background: #D9E3CC;
+            border-radius: 28px;
             padding: 40px 20px;
             text-align: center;
-            color: #1e2a24;
+            color: #2C5A2E;
             font-weight: 500;
-            border: 2px dashed #2a5a3a;
+            border: 2px dashed #A0B892;
             transition: transform 0.2s;
         }
         .photo-box:hover {
             transform: scale(1.01);
-            background: #e2eae2;
+            background: #CDDFB9;
         }
         .photo-box i {
             font-size: 2.5rem;
@@ -206,8 +196,8 @@
             margin-bottom: 12px;
         }
         footer {
-            background: #0e1f14;
-            color: #ccc;
+            background: #2C5A2E;
+            color: #f0f2e9;
             padding: 24px 0;
             text-align: center;
             font-size: 0.9rem;
@@ -216,23 +206,6 @@
             .title-green { font-size: 1.7rem; }
             .hero-left h1 { font-size: 2rem; }
             .about-wrapper { flex-direction: column; }
-        }
-        /* 内联样式覆盖 */
-        .card-round[style*="background:#FEF1E4"] {
-            background: #ffffff !important;
-            border-left: 4px solid #d4a017;
-            border-radius: 0;
-        }
-        .card-round div[style*="background:#DDD5C4"] {
-            background: #f5f7f6 !important;
-            color: #1e2a24;
-            border: 1px solid #d4a017;
-            border-radius: 0;
-        }
-        /* 所有圆角归零，除个别需要保留的可单独设置，这里统一为直角风格 */
-        .hero-green, .card-round, .btn-green, .badge-natural, .img-placeholder, 
-        .brand-chip, .photo-box, .nav-soft, .container, section, div {
-            /* 已在上方各选择器中设置 border-radius:0，确保直角 */
         }
     </style>
 </head>
@@ -313,7 +286,7 @@
             <div class="card-round" style="background:#FEF1E4;">
                 <h3>罗定豆豉鸡产业园 · 中星农津工厂</h3>
                 <p>面积超600亩，2024年建成标准化生产体系，重点研发豆豉鸡、鱼腐、腊味等，为乡村振兴注入持久动力。</p>
-                <div style="background:#DDD5C4; border-radius: 0; padding: 20px; margin-top: 20px; text-align: center;">🏭 产业园规划示意图（实际占地600亩）</div>
+                <div style="background:#DDD5C4; border-radius: 24px; padding: 20px; margin-top: 20px; text-align: center;">🏭 产业园规划示意图（实际占地600亩）</div>
             </div>
         </section>
     </div>
