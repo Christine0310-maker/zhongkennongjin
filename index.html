@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
-    <title>中垦农津 · 生物细胞还原技术</title>
+    <title>中垦农津 · 生物细胞还原技术 | 深绿新境</title>
     <style>
         * {
             margin: 0;
@@ -11,9 +11,10 @@
             box-sizing: border-box;
         }
         body {
+            /* 深绿主背景：深邃稳重，保留自然感 */
             font-family: system-ui, -apple-system, 'Segoe UI', 'Noto Sans', sans-serif;
-            background: #FDF8F0;
-            color: #2C3E2F;
+            background: #0F2F1C;  /* 深绿基调，类似墨绿森林 */
+            color: #EFF3E8;        /* 米白浅色，保证对比度 */
             line-height: 1.5;
         }
         .container {
@@ -21,14 +22,15 @@
             margin: 0 auto;
             padding: 0 24px;
         }
-        /* 导航栏 */
+        /* 导航栏：深色半透 + 深绿基底 */
         .nav-soft {
-            background: #ffffffdd;
-            backdrop-filter: blur(10px);
+            background: #1B3A24cc;      /* 深绿色半透明磨砂 */
+            backdrop-filter: blur(12px);
             position: sticky;
             top: 0;
             z-index: 99;
-            box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+            box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+            border-bottom: 1px solid #3E6B47;
         }
         .nav-flex {
             display: flex;
@@ -40,10 +42,10 @@
         .logo-green {
             font-size: 1.5rem;
             font-weight: 700;
-            color: #3A6B3D;
+            color: #CFEED7;
         }
         .logo-green span {
-            color: #E67E22;
+            color: #F39C12;   /* 温暖琥珀橙，保持品牌识别，整体深绿氛围和谐 */
         }
         .nav-links-green {
             display: flex;
@@ -54,13 +56,13 @@
         }
         .nav-links-green li a {
             text-decoration: none;
-            color: #2C3E2F;
+            color: #E9F2E3;
             font-weight: 500;
             font-size: 1rem;
             transition: color 0.2s;
         }
         .nav-links-green li a:hover {
-            color: #E67E22;
+            color: #F39C12;
         }
         @media (max-width: 680px) {
             .nav-flex {
@@ -73,6 +75,7 @@
                 gap: 1.2rem;
             }
         }
+        /* 按钮深绿风格，用深色底+橙色点缀 */
         .btn-green {
             background: #E67E22;
             color: white;
@@ -83,6 +86,11 @@
             display: inline-block;
             text-decoration: none;
             cursor: pointer;
+            transition: all 0.2s;
+        }
+        .btn-green:hover {
+            background: #D35400;
+            transform: scale(1.02);
         }
         section {
             padding: 60px 0;
@@ -90,28 +98,30 @@
         .title-green {
             font-size: 2rem;
             font-weight: 700;
-            color: #2C5A2E;
+            color: #DAF0DE;   /* 柔和浅绿，深绿背景下清爽 */
             margin-bottom: 16px;
             text-align: center;
         }
         .sub-green {
-            color: #5e6f5d;
+            color: #C2DCB9;
             margin-bottom: 40px;
             font-size: 1.1rem;
             text-align: center;
         }
         .card-round {
-            background: white;
+            background: #1F3F2A;      /* 深卡其绿，层次分明，不刺眼 */
             border-radius: 32px;
             padding: 28px;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.03);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
             transition: all 0.2s;
-            border: 1px solid #f0e5d6;
+            border: 1px solid #2F5A3A;
         }
+        /* hero区域改为深绿渐变，保留原风格但调整颜色 */
         .hero-green {
-            background: linear-gradient(120deg, #E9F5E6 0%, #FDF8F0 100%);
+            background: linear-gradient(135deg, #0F2A17 0%, #1A4230 100%);
             border-radius: 0 0 48px 48px;
             padding: 50px 0;
+            border-bottom: 1px solid #336B48;
         }
         .hero-inner {
             display: flex;
@@ -122,27 +132,35 @@
         .hero-left h1 {
             font-size: 2.8rem;
             font-weight: 800;
-            color: #2C5A2E;
+            color: #EAF7E5;
             line-height: 1.2;
         }
         .hero-left p {
             font-size: 1.1rem;
             margin: 20px 0;
+            color: #D0E6C7;
         }
         .badge-natural {
-            background: #FBE9D2;
+            background: #2F5C3B;
             border-radius: 40px;
             padding: 6px 16px;
             font-size: 0.8rem;
             display: inline-block;
             margin-bottom: 20px;
+            color: #FFEAD2;
+            border: 1px solid #578B65;
         }
         .img-placeholder {
-            background: #D9E3CC;
+            background: #264F33;
             border-radius: 32px;
             padding: 40px 20px;
             text-align: center;
+            color: #D9F0CE;
+            font-weight: 500;
+            border: 1px solid #437C56;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
         }
+        /* 合作品牌及资质认证标签——深色质感 */
         .brand-wall {
             display: flex;
             flex-wrap: wrap;
@@ -151,12 +169,16 @@
             margin: 30px 0;
         }
         .brand-chip {
-            background: white;
+            background: #2D4A35;
             border-radius: 60px;
             padding: 8px 24px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+            color: #F2F7EA;
+            font-weight: 500;
+            transition: 0.1s;
+            border: 1px solid #4D7A5C;
         }
-        /* 关于我们样式 */
+        /* 关于我们板块图片占位框 深绿风格 */
         .about-wrapper {
             display: flex;
             flex-wrap: wrap;
@@ -167,7 +189,7 @@
             flex: 1.2;
             font-size: 1.1rem;
             line-height: 1.7;
-            color: #2C3E2F;
+            color: #EBF5E3;
             text-align: justify;
         }
         .about-photos {
@@ -177,35 +199,96 @@
             gap: 20px;
         }
         .photo-box {
-            background: #D9E3CC;
+            background: #2C533B;
             border-radius: 28px;
             padding: 40px 20px;
             text-align: center;
-            color: #2C5A2E;
+            color: #E7F5DE;
             font-weight: 500;
-            border: 2px dashed #A0B892;
+            border: 2px dashed #6C9F7C;
             transition: transform 0.2s;
         }
         .photo-box:hover {
             transform: scale(1.01);
-            background: #CDDFB9;
+            background: #3C6A4A;
         }
         .photo-box i {
             font-size: 2.5rem;
             display: block;
             margin-bottom: 12px;
         }
+        /* 自有工厂卡片区域 */
+        .card-round[style*="background:#FEF1E4"] {
+            background: #1E3E2C !important;
+            border-left: 4px solid #F39C12;
+        }
+        .card-round h3 {
+            color: #FBEBCB;
+        }
+        .card-round p {
+            color: #D2E7CB;
+        }
+        .card-round div[style*="background:#DDD5C4"] {
+            background: #2B553C !important;
+            color: #F2F3E4;
+            border-radius: 24px;
+            border: 1px solid #598F6A;
+        }
         footer {
-            background: #2C5A2E;
-            color: #f0f2e9;
+            background: #092613;
+            color: #CCE3C2;
             padding: 24px 0;
             text-align: center;
             font-size: 0.9rem;
+            border-top: 1px solid #2F6A41;
         }
+        /* 额外微调确保所有文字可见 */
+        a, .nav-links-green li a, .logo-green, .brand-chip, .photo-box, .img-placeholder {
+            color-scheme: dark;
+        }
+        .sub-green, .hero-left p, .about-text p {
+            color: #D4EDC8;
+        }
+        /* 保留之前的响应式 */
         @media (max-width: 700px) {
             .title-green { font-size: 1.7rem; }
             .hero-left h1 { font-size: 2rem; }
             .about-wrapper { flex-direction: column; }
+        }
+        /* 调整按钮风格保持一致，但无碍深绿主题 */
+        .btn-green, .btn-green:hover {
+            background: #F39C12;
+            color: #0A2819;
+            font-weight: 700;
+        }
+        .btn-green:hover {
+            background: #E67E22;
+            color: #FFFFFF;
+        }
+        /* 原内联样式可能干扰，但全量覆盖确保深绿视觉 */
+        .card-round, .photo-box, .img-placeholder, .brand-chip, .nav-soft {
+            transition: all 0.2s;
+        }
+        /* 确保合作品牌区域下的资质认证chip样式统一 */
+        .brand-chip:active, .brand-chip:focus {
+            background: #3E6F4D;
+        }
+        /* 产业园规划示意图占位背景优化 */
+        .card-round div[style*="background:#DDD5C4"] {
+            background: #285538 !important;
+            font-weight: 500;
+        }
+        /* 原有加粗或细节保持一致，只换颜色 */
+        .logo-green, .title-green, .badge-natural {
+            letter-spacing: -0.01em;
+        }
+        /* 所有图片占位符无真实图片, 保留原始文字内容 */
+        .img-placeholder, .photo-box, .card-round div {
+            font-weight: 500;
+        }
+        /* 若有边框阴影均调整深邃风格 */
+        .card-round {
+            box-shadow: 0 12px 22px rgba(0, 0, 0, 0.3);
         }
     </style>
 </head>
